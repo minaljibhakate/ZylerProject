@@ -1,0 +1,190 @@
+<html>
+<head>
+<title>TestNG:  Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>22/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 07 18:36:15 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>988 seconds (988693 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='GreenJeeva.Sales.e2e_enquiry_quotation_salesorder.convert_To_Quotation()'><b>convert_To_Quotation</b><br>Test class: GreenJeeva.Sales.e2e_enquiry_quotation_salesorder</td>
+<td></td>
+<td>24</td>
+<td>GreenJeeva.Sales.e2e_enquiry_quotation_salesorder@42bc14c1</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.ToBeSourcedTest.SortingOfPriorityVerificationInNotAssigned()'><b>SortingOfPriorityVerificationInNotAssigned</b><br>Test class: GreenJeeva.Sales.ToBeSourcedTest</td>
+<td></td>
+<td>26</td>
+<td>GreenJeeva.Sales.ToBeSourcedTest@7776ab</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.EnquiryAddEditDeleteTest.edit_existing_Enquiry()'><b>edit_existing_Enquiry</b><br>Test class: GreenJeeva.Sales.EnquiryAddEditDeleteTest</td>
+<td></td>
+<td>27</td>
+<td>GreenJeeva.Sales.EnquiryAddEditDeleteTest@907f2b7</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.EnquiryAddEditDeleteTest.Enquiry_SortingOfPriorityVerification()'><b>Enquiry_SortingOfPriorityVerification</b><br>Test class: GreenJeeva.Sales.EnquiryAddEditDeleteTest</td>
+<td></td>
+<td>29</td>
+<td>GreenJeeva.Sales.EnquiryAddEditDeleteTest@907f2b7</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.DeletingProductFromMultipleList.verify_deleted_product_in_enquirylist()'><b>verify_deleted_product_in_enquirylist</b><br>Test class: GreenJeeva.Sales.DeletingProductFromMultipleList</td>
+<td></td>
+<td>11</td>
+<td>GreenJeeva.Sales.DeletingProductFromMultipleList@435ce306</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.ToBeSourcedTest.add_Enquiry_for_to_be_sourced()'><b>add_Enquiry_for_to_be_sourced</b><br>Test class: GreenJeeva.Sales.ToBeSourcedTest</td>
+<td></td>
+<td>46</td>
+<td>GreenJeeva.Sales.ToBeSourcedTest@7776ab</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.CancelRejectSOTest.reject_Sales_Order()'><b>reject_Sales_Order</b><br>Test class: GreenJeeva.Sales.CancelRejectSOTest</td>
+<td></td>
+<td>39</td>
+<td>GreenJeeva.Sales.CancelRejectSOTest@537b32ef</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.e2e_convert_SO_to_packingList_Test.convert_so_to_packingList()'><b>convert_so_to_packingList</b><br>Test class: GreenJeeva.Sales.e2e_convert_SO_to_packingList_Test</td>
+<td></td>
+<td>50</td>
+<td>GreenJeeva.Sales.e2e_convert_SO_to_packingList_Test@1afdd473</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.CancelRejectSOTest.cancel_Sales_Order()'><b>cancel_Sales_Order</b><br>Test class: GreenJeeva.Sales.CancelRejectSOTest</td>
+<td></td>
+<td>42</td>
+<td>GreenJeeva.Sales.CancelRejectSOTest@537b32ef</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.e2e_enquiry_quotation_salesorder.add_New_Enquiry()'><b>add_New_Enquiry</b><br>Test class: GreenJeeva.Sales.e2e_enquiry_quotation_salesorder</td>
+<td></td>
+<td>43</td>
+<td>GreenJeeva.Sales.e2e_enquiry_quotation_salesorder@42bc14c1</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.ToBeSourcedTest.enquiryMovedToAssigned()'><b>enquiryMovedToAssigned</b><br>Test class: GreenJeeva.Sales.ToBeSourcedTest</td>
+<td></td>
+<td>20</td>
+<td>GreenJeeva.Sales.ToBeSourcedTest@7776ab</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.RMATest.SO_to_invoice_to_RMA()'><b>SO_to_invoice_to_RMA</b><br>Test class: GreenJeeva.Sales.RMATest</td>
+<td></td>
+<td>69</td>
+<td>GreenJeeva.Sales.RMATest@7dc51783</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.ToBeSourcedTest.verifyToBeSourced()'><b>verifyToBeSourced</b><br>Test class: GreenJeeva.Sales.ToBeSourcedTest</td>
+<td></td>
+<td>19</td>
+<td>GreenJeeva.Sales.ToBeSourcedTest@7776ab</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.DeletingProductFromMultipleList.Delete_products_while_converting_to_quotation()'><b>Delete_products_while_converting_to_quotation</b><br>Test class: GreenJeeva.Sales.DeletingProductFromMultipleList</td>
+<td></td>
+<td>17</td>
+<td>GreenJeeva.Sales.DeletingProductFromMultipleList@435ce306</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.SaleOrderTest.SO_Updating_current_status()'><b>SO_Updating_current_status</b><br>Test class: GreenJeeva.Sales.SaleOrderTest</td>
+<td></td>
+<td>9</td>
+<td>GreenJeeva.Sales.SaleOrderTest@40238dd0</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.EnquiryAddEditDeleteTest.delete_existing_Enquiry()'><b>delete_existing_Enquiry</b><br>Test class: GreenJeeva.Sales.EnquiryAddEditDeleteTest</td>
+<td></td>
+<td>8</td>
+<td>GreenJeeva.Sales.EnquiryAddEditDeleteTest@907f2b7</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.EnquiryAddEditDeleteTest.Enquiry_SortingOfStatus()'><b>Enquiry_SortingOfStatus</b><br>Test class: GreenJeeva.Sales.EnquiryAddEditDeleteTest</td>
+<td></td>
+<td>16</td>
+<td>GreenJeeva.Sales.EnquiryAddEditDeleteTest@907f2b7</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.EnquiryAddEditDeleteTest.add_New_Enquiry()'><b>add_New_Enquiry</b><br>Test class: GreenJeeva.Sales.EnquiryAddEditDeleteTest</td>
+<td></td>
+<td>44</td>
+<td>GreenJeeva.Sales.EnquiryAddEditDeleteTest@907f2b7</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.e2e_enquiry_quotation_salesorder.convert_To_SalesOrder()'><b>convert_To_SalesOrder</b><br>Test class: GreenJeeva.Sales.e2e_enquiry_quotation_salesorder</td>
+<td></td>
+<td>26</td>
+<td>GreenJeeva.Sales.e2e_enquiry_quotation_salesorder@42bc14c1</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.DeletingProductFromMultipleList.add_Enquiry_Multiple_Products()'><b>add_Enquiry_Multiple_Products</b><br>Test class: GreenJeeva.Sales.DeletingProductFromMultipleList</td>
+<td></td>
+<td>89</td>
+<td>GreenJeeva.Sales.DeletingProductFromMultipleList@435ce306</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.ToBeSourcedTest.SortingOfPriorityVerificationInAssigned()'><b>SortingOfPriorityVerificationInAssigned</b><br>Test class: GreenJeeva.Sales.ToBeSourcedTest</td>
+<td></td>
+<td>28</td>
+<td>GreenJeeva.Sales.ToBeSourcedTest@7776ab</td></tr>
+<tr>
+<td title='GreenJeeva.Sales.SaleOrderTest.add_Sales_Order()'><b>add_Sales_Order</b><br>Test class: GreenJeeva.Sales.SaleOrderTest</td>
+<td></td>
+<td>34</td>
+<td>GreenJeeva.Sales.SaleOrderTest@40238dd0</td></tr>
+</table><p>
+</body>
+</html>

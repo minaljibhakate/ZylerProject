@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [Surefire suite]" verbose="0">
+  <test thread-count="1" name="Surefire test(failed)" verbose="0">
+    <classes>
+      <class name="GreenJeeva.RecordPayamentTest">
+        <methods>
+          <include name="driverClose"/>
+          <include name="driverOpen"/>
+          <include name="record_payent_for_Purchase_Order"/>
+        </methods>
+      </class> <!-- GreenJeeva.RecordPayamentTest -->
+      <class name="GreenJeeva.QuotationsTest">
+        <methods>
+          <include name="driverOpen"/>
+          <include name="convert_To_Quotation"/>
+          <include name="convert_To_SalesOrder"/>
+          <include name="driverClose"/>
+        </methods>
+      </class> <!-- GreenJeeva.QuotationsTest -->
+      <class name="GreenJeeva.InboundTrackingTest">
+        <methods>
+          <include name="driverOpen"/>
+          <include name="verifying_product_received_functionality_of_PO"/>
+          <include name="gerenate_PutAway_Sheet"/>
+          <include name="driverClose"/>
+          <include name="add_Inbound_Tracking"/>
+        </methods>
+      </class> <!-- GreenJeeva.InboundTrackingTest -->
+      <class name="GreenJeeva.MultipleEnquiryTest">
+        <methods>
+          <include name="add_Enquiry_Multiple_Products"/>
+          <include name="driverClose"/>
+          <include name="driverOpen"/>
+        </methods>
+      </class> <!-- GreenJeeva.MultipleEnquiryTest -->
+      <class name="GreenJeeva.CancelRejectPOTest">
+        <methods>
+          <include name="driverClose"/>
+          <include name="reject_Purchase_Order"/>
+          <include name="driverOpen"/>
+          <include name="cancel_Purchase_Order"/>
+        </methods>
+      </class> <!-- GreenJeeva.CancelRejectPOTest -->
+      <class name="GreenJeeva.ToBeSourcedTest">
+        <methods>
+          <include name="verifyToBeSourced"/>
+          <include name="driverClose"/>
+          <include name="SortingOfPriorityVerificationInAssigned"/>
+          <include name="SortingOfPriorityVerificationInNotAssigned"/>
+          <include name="add_Enquiry_for_to_be_sourced"/>
+          <include name="driverOpen"/>
+        </methods>
+      </class> <!-- GreenJeeva.ToBeSourcedTest -->
+      <class name="GreenJeeva.CancelRejectSOTest">
+        <methods>
+          <include name="reject_Sales_Order"/>
+          <include name="cancel_Sales_Order"/>
+          <include name="driverOpen"/>
+          <include name="driverClose"/>
+        </methods>
+      </class> <!-- GreenJeeva.CancelRejectSOTest -->
+      <class name="GreenJeeva.convertSOtopackingListTest">
+        <methods>
+          <include name="convert_so_to_packingList"/>
+          <include name="driverClose"/>
+          <include name="driverOpen"/>
+        </methods>
+      </class> <!-- GreenJeeva.convertSOtopackingListTest -->
+      <class name="GreenJeeva.SourcingTest">
+        <methods>
+          <include name="driverClose"/>
+          <include name="addNewSourcing"/>
+          <include name="driverOpen"/>
+        </methods>
+      </class> <!-- GreenJeeva.SourcingTest -->
+      <class name="GreenJeeva.PurchaseOrderTest">
+        <methods>
+          <include name="add_Purchase_Order"/>
+          <include name="driverOpen"/>
+          <include name="add_COA_Document_to_PO"/>
+          <include name="driverClose"/>
+        </methods>
+      </class> <!-- GreenJeeva.PurchaseOrderTest -->
+      <class name="GreenJeeva.AccountPayableTest">
+        <methods>
+          <include name="driverOpen"/>
+          <include name="driverClose"/>
+          <include name="PO_push_to_inventory"/>
+        </methods>
+      </class> <!-- GreenJeeva.AccountPayableTest -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->

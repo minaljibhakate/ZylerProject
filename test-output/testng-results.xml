@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-12-08T14:39:56 IST" name="Default suite" finished-at="2022-12-08T14:42:39 IST" duration-ms="163315">
+    <groups>
+    </groups>
+    <test started-at="2022-12-08T14:39:56 IST" name="Default test" finished-at="2022-12-08T14:42:39 IST" duration-ms="163315">
+      <class name="GreenJeeva.Sales.QuotationsEditDeleteTest">
+        <test-method is-config="true" signature="driverOpen()[pri:0, instance:GreenJeeva.Sales.QuotationsEditDeleteTest@57a78e3]" started-at="2022-12-08T14:39:56 IST" name="driverOpen" finished-at="2022-12-08T14:40:14 IST" duration-ms="18435" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- driverOpen -->
+        <test-method signature="edit_quotation()[pri:1, instance:GreenJeeva.Sales.QuotationsEditDeleteTest@57a78e3]" started-at="2022-12-08T14:40:14 IST" name="edit_quotation" finished-at="2022-12-08T14:41:06 IST" duration-ms="51386" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- edit_quotation -->
+        <test-method signature="delete_quotation()[pri:2, instance:GreenJeeva.Sales.QuotationsEditDeleteTest@57a78e3]" started-at="2022-12-08T14:41:06 IST" name="delete_quotation" finished-at="2022-12-08T14:41:22 IST" duration-ms="16737" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- delete_quotation -->
+        <test-method signature="quotation_salesRep_sorting()[pri:3, instance:GreenJeeva.Sales.QuotationsEditDeleteTest@57a78e3]" started-at="2022-12-08T14:41:22 IST" name="quotation_salesRep_sorting" finished-at="2022-12-08T14:41:38 IST" duration-ms="15598" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quotation_salesRep_sorting -->
+        <test-method signature="Enquiry_SortingOfStatus()[pri:4, instance:GreenJeeva.Sales.QuotationsEditDeleteTest@57a78e3]" started-at="2022-12-08T14:41:38 IST" name="Enquiry_SortingOfStatus" finished-at="2022-12-08T14:42:20 IST" duration-ms="41858" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Enquiry_SortingOfStatus -->
+        <test-method is-config="true" signature="driverClose()[pri:0, instance:GreenJeeva.Sales.QuotationsEditDeleteTest@57a78e3]" started-at="2022-12-08T14:42:20 IST" name="driverClose" finished-at="2022-12-08T14:42:39 IST" duration-ms="19248" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- driverClose -->
+      </class> <!-- GreenJeeva.Sales.QuotationsEditDeleteTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

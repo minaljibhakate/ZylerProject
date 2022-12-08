@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<listeners>
+		<listener class-name="TestComponents.Listeners" />
+	</listeners>
+
+	<test name="Regression Tests" preserve-order="true">
+		<classes>
+			<class name="GreenJeeva.EntityTest" />
+			<class name="GreenJeeva.Sales.EnquiriesTest" />
+			<class name="GreenJeeva.Sales.SaleOrderTest" />
+			<class name="GreenJeeva.Sales.QuotationsTest" />
+			<class name="GreenJeeva.Sales.ToBeSourcedTest" />
+			<class name="GreenJeeva.Purchase.PurchaseOrderTest" />
+			<class name="GreenJeeva.Purchase.InboundTrackingTest" />
+			<class name="GreenJeeva.Purchase.AccountPayableTest" />	
+			<class name="GreenJeeva.Purchase.SourcingTest" />
+			<class name="GreenJeeva.Sales.DeletingProductFromMultipleList" />
+			<class name="GreenJeeva.Purchase.CancelRejectPOTest" />
+			<class name="GreenJeeva.Sales.CancelRejectSOTest" />
+			<class name="GreenJeeva.Purchase.RecordPayamentTest" />
+			<class name="GreenJeeva.Sales.RMATest" />
+			<class name="GreenJeeva.DeleteSOPO" />
+			<class name="GreenJeeva.Sales.convertSOtopackingListTest" />
+			<class name="GreenJeeva.Sales.SalesPriceEstimateTest" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
