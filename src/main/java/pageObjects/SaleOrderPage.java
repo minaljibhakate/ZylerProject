@@ -15,6 +15,10 @@ public class SaleOrderPage {
 	}
 	
 	private By sale_link = By.xpath("//a[normalize-space()='Sale']");
+	//Hamburger Menu
+	private By hamburgermenu_button = By.xpath("//span[@class='material-icons left']");
+	//Enquiry Menu
+	private By so_menu = By.xpath("(//a[normalize-space()='Sales Order'])[1]");
 	private By create_new_sales_order_btn = By.xpath("//a[@class='btn btn-default btn-sm btn-addon new-invoice-list']");
 	private By customer_dropdown = By.xpath("//button[@data-id='clientid']");
 	private By customer_dropdown_search = By.xpath("//div[@class='f_client_id_salesorder']//input[@aria-label='Search']");
@@ -48,16 +52,28 @@ public class SaleOrderPage {
 	//Yes button
 	private By yes_button = By.xpath("//button[normalize-space()='Yes']");
 	//Search
-	private By search = By.xpath("//input[@type='search']");
+	//	private By search = By.xpath("//input[@type='search']");
 	//first SO number click from table
-	private By SO_number_click = By.xpath("//tbody//tr//td[1]//a");
+	private By SO_number_click = By.xpath("//tbody//tr[1]//td[1]//a");
 	//Edit button click
 	private By edit_button = By.xpath("(//a[@class='btn btn-default btn-with-tooltip float-left mr-2'])[1]");
 	
+	//Status
+	private By status_dropdown = By.xpath("(//button[@type='button'])[7]");
+	private By status_list = By.xpath("//ul[@class='dropdown-menu show']//li//a");
+	private By status_column_list = By.xpath("//table[@id='table-salesorders']//div[@class='input-group-text']");	
 	
 	public WebElement getSale()
 	{
 		return driver.findElement(sale_link);
+	}
+	public WebElement getHamburgerMenuClick()
+	{
+		return driver.findElement(hamburgermenu_button);
+	}
+	public WebElement getSOMenuClick()
+	{
+		return driver.findElement(so_menu);
 	}
 	public WebElement getCreateNewSalesOrder()
 	{
@@ -171,10 +187,10 @@ public class SaleOrderPage {
 	{
 		return driver.findElement(yes_button);
 	}
-	public WebElement getSearch()
-	{
-		return driver.findElement(search);
-	}
+//	public WebElement getSearch()
+//	{
+//		return driver.findElement(search);
+//	}
 	public WebElement getSONumberClick()
 	{
 		return driver.findElement(SO_number_click);
@@ -182,5 +198,18 @@ public class SaleOrderPage {
 	public WebElement getEditButton()
 	{
 		return driver.findElement(edit_button);
+	}
+	//status filter
+	public WebElement getStatusDropdown()
+	{
+		return driver.findElement(status_dropdown);
+	}
+	public List<WebElement> getStatusList()
+	{
+		return driver.findElements(status_list);
+	}
+	public List<WebElement> getStatusColumnList()
+	{
+		return driver.findElements(status_column_list);
 	}
 }

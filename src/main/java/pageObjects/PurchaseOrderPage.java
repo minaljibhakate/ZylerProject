@@ -58,7 +58,9 @@ public class PurchaseOrderPage {
 	//Search
 	private By search = By.xpath("//input[@type='search']");
 	//PO Link
-	private By po_link = By.xpath("//tbody//tr//td[1]//a");
+	private By po_link = By.xpath("//tbody//tr[1]//td[1]//a");
+	//Edit button
+	private By edit_button = By.xpath("(//a[@class='btn btn-default btn-with-tooltip float-left mr-2'])[1]");
 
 	public WebElement getPurchase()
 	{
@@ -202,5 +204,9 @@ public class PurchaseOrderPage {
 	public WebElement getPOLink()
 	{
 		return driver.findElement(po_link);
+	}
+	public WebElement getEditButton()
+	{
+		return driver.findElement(edit_button);
 	}
 }

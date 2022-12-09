@@ -144,7 +144,8 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 		pop.getAttachCOADocument().click();
 		pop.getUploadfile().click();
 		Thread.sleep(2000);
-		Runtime.getRuntime().exec("D:\\Zyler ERP Automation\\FileUpload.exe");
+		Runtime.getRuntime().exec("D:\\Zyler ERP Automation\\ZylerERP\\TestUploadFile\\FileUpload.exe"); 
+		//Runtime.getRuntime().exec("D:\\Zyler ERP Automation\\FileUpload.exe");
 		driver.switchTo().activeElement();
 		pop.getUploadFileCloseButton().click();
 		driver.switchTo().activeElement();

@@ -4,6 +4,8 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,7 +19,7 @@ import TestComponents.base;
 import pageObjects.SaleOrderPage;
 import utils.ExcelUtils;
 
-public class SaleOrderTest extends base{
+public class SaleOrderAddEditDelete extends base{
 
 	WebDriver driver;
 	String SONumber;
@@ -110,16 +112,6 @@ public class SaleOrderTest extends base{
 		//Add Rate
 		sop.getRate().sendKeys(excel.getCellDataNumber(1, 5));
 
-		//Select Current status
-//						sop.getCurrentStatus().click();
-//						List<WebElement> CurrentStatusList = sop.getCurrentStatusDropdownSuggestion();
-//						for(int i=0 ; i<CurrentStatusList.size(); i++) {
-//							if(CurrentStatusList.get(i).getText().contains(excel.getCellDataString(1, 6)) ) {
-//								CurrentStatusList.get(i).click();
-//								break;
-//							}
-//						}
-
 		//click on Add line Item
 		sop.getAddLineItemClick().click();
 
@@ -142,55 +134,152 @@ public class SaleOrderTest extends base{
 		Thread.sleep(3000);
 
 	}
-	
+
 	@Test(priority = 2)
+	public void so_updating_current_status() throws InterruptedException
+	{
+		System.out.println("------Started Executing Updating Current Status Blank to New------");
+		SaleOrderPage sop = new SaleOrderPage(driver);
+
+		sop.getSale().click();		//Click on Sale option on Header
+
+		Thread.sleep(2000);
+		System.out.println("Current status:" + sop.getCurrentStatusList().getText());
+
+		sop.getCurrentStatusSelect().click();
+		Select status = new Select(sop.getCurrentStatusSelect());
+		status.selectByVisibleText("New");
+		Thread.sleep(2000);
+		driver.switchTo().activeElement();
+		Thread.sleep(1000);
+		sop.getYesStatus().click(); 
+		Thread.sleep(1000);
+		System.out.println("Status After Updation:" + sop.getCurrentStatusList().getText());
+		Thread.sleep(4000);
+	}
+
+	@Test(priority = 3)
 	public void edit_Sales_Order() throws InterruptedException
 	{
-		System.out.println("------Started Executing Add New Sales Order------");
+		System.out.println("------Started Executing Edit Sales Order------");
 		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "SalesOrder");		
+		SaleOrderPage sop = new SaleOrderPage(driver);
+
+		sop.getSale().click();//Click on Sale option on Header
+
+		sop.getSONumberClick().click(); 
+		Thread.sleep(2000);
+
+		driver.switchTo().activeElement();
+		sop.getEditButton().click();
+
+		//Selecting Item from list
+		sop.getAddItemDropdown().click();
+		sop.getAddItemDropdownSearch().sendKeys(excel.getCellDataString(2, 2));
+		Thread.sleep(2000);
+		List<WebElement> itemList = new WebDriverWait(driver, Duration.ofSeconds(20))
+				.until(ExpectedConditions.visibilityOfAllElements(sop.getAddItemDropdownSuggestion()));
+		for(int i=0 ; i<itemList.size(); i++) {
+			if(itemList.get(i).getText().contains(excel.getCellDataString(2, 2)) ) {
+				itemList.get(i).click();
+				break;
+			}
+		}
+
+		//Warehouse selection
+		sop.getWarehouseDropdown().click();		
+		List<WebElement> warehouseList = sop.getWarehouseDropdownSuggestion();
+		for(int i=0 ; i<warehouseList.size(); i++) {
+			if(warehouseList.get(i).getText().contains(excel.getCellDataString(2, 3)) ) {
+				warehouseList.get(i).click();
+				break;
+			}
+		}
+
+		//Add Quantity code
+		sop.getQty().clear();
+		sop.getQty().sendKeys(excel.getCellDataNumber(2, 4));
+
+		//Add Rate
+		sop.getRate().sendKeys(excel.getCellDataNumber(2, 5));
+
+		//click on Add line Item
+		sop.getAddLineItemClick().click();
+
+		//click on Save button
+		sop.getSaveButton().click();
+
+		//Verifying success Message
+		WebElement success_wait = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(sop.getSuccessMessage()));	
+		String sucess_message = success_wait.getText();
+		String expected_success_message = "Salesorder updated Successfully.";
+		Assert.assertTrue(sucess_message.contains(expected_success_message));
+		System.out.println("Message  : "+sucess_message.replace("×", ""));
+	}
+
+	@Test(priority = 4)
+	public void delete_Sales_Order() throws InterruptedException
+	{
+		System.out.println("------Started Executing Delete Sales Order------");
 		SaleOrderPage sop = new SaleOrderPage(driver);
 
 		//Click on Sale option on Header
 		sop.getSale().click();
-		
-		sop.getSearch().sendKeys(SONumber);
+
+		sop.getSONumberClick().click(); 
 		Thread.sleep(2000);
-		
-		sop.getSONumberClick().click();
+
 		driver.switchTo().activeElement();
-		sop.getEditButton().click();
-		
-		
-		
-		
-	}
-	
-	@Test(priority = 4)
-	public void SO_Updating_current_status() throws InterruptedException
-	{
-			System.out.println("------Started Executing Updating Current Status Blank to New------");
-			SaleOrderPage sop = new SaleOrderPage(driver);
-		
-			//Click on Sale option on Header
-			sop.getSale().click();
-			
-			sop.getSearch().sendKeys(SONumber);
-			Thread.sleep(2000);
-			System.out.println("Current status:" + sop.getCurrentStatusList().getText());
-		
-			sop.getCurrentStatusSelect().click();
-			Select status = new Select(sop.getCurrentStatusSelect());
-			status.selectByVisibleText("New");
-			Thread.sleep(2000);
-			driver.switchTo().activeElement();
-			Thread.sleep(1000);
-			sop.getYesStatus().click(); 
-			Thread.sleep(1000);
-			System.out.println("Status After Updation:" + sop.getCurrentStatusList().getText());
+
+		sop.getMoreButton().click();
+		sop.getDeleteButton().click();  
+
+		driver.switchTo().alert().accept();
+
+		String sucess_message = sop.getSuccessMessage().getText();
+		String expected_success_message = "Salesorder deleted Successfully";
+		Assert.assertTrue(sucess_message.contains(expected_success_message));
+		System.out.println("Message  : "+sucess_message.replace("×", ""));
 	}
 
-	
-	
+	@Test(priority=5)
+	public void salesorder_SortingOfStatus() throws InterruptedException
+	{
+		System.out.println("------Started Executing Sorting Of Status in Sales Order List Page------");
+		SaleOrderPage sop = new SaleOrderPage(driver);
+
+		sop.getSale().click();//Click on Sale option on Header
+		System.out.println("Verifying Status dropdown is working as expected for 'New'");
+
+		sop.getStatusDropdown().click();
+		sop.getStatusDropdown().click();
+		sop.getStatusDropdown().click();
+
+		List<WebElement> statusList = sop.getStatusList();
+		for(int i=0 ; i<statusList.size(); i++) {
+			if(statusList.get(i).getText().contains("New") ) {
+				statusList.get(i).click();
+				break;
+			}
+		}
+		Thread.sleep(3000);
+		List<WebElement> statusColumnList = sop.getStatusColumnList();
+		int status_count =0;
+		System.out.println("statusColumnList ==>"+statusColumnList.size());
+		for(int i=0 ; i<statusColumnList.size(); i++) {
+			if(statusColumnList.get(i).getText().contains("New") ) {
+				statusColumnList.get(i).click();
+				status_count++;
+			}
+			else 
+				break;
+		}
+		System.out.println("Status Count==>"+status_count);
+		Assert.assertTrue(status_count==statusColumnList.size());
+	}
+
+
+
 	@AfterTest
 	public void driverClose() 	
 	{

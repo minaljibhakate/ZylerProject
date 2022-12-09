@@ -29,7 +29,7 @@ public class PurchaseOrderTest extends base{
 	}
 
 	@Test(priority = 1)
-	public void add_Purchase_Order() throws IOException,InterruptedException
+	public void add_purchase_order() throws IOException,InterruptedException
 	{
 		System.out.println("------Started Executing Add Purchase Order------");
 		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "PurchaseOrder");		
@@ -119,9 +119,75 @@ public class PurchaseOrderTest extends base{
 		Thread.sleep(3000);
 		pop.getPreviewCloseButton1().click();
 		Thread.sleep(3000);
-
 	}
 
+	@Test(priority = 1)
+	public void edit_purchase_order() throws IOException,InterruptedException
+	{
+		System.out.println("------Started Executing Edit Purchase Order------");
+		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "PurchaseOrder");		
+		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
+		pop.getPurchase().click();
+		
+		pop.getPOLink().click();
+		driver.switchTo().activeElement();
+		pop.getEditButton().click();
+		
+		//Add Item Code
+		pop.getAddItemDropdown().click();
+		pop.getAddItemDropdownSearch().sendKeys(excel.getCellDataString(2, 1));
+		Thread.sleep(2000);
+		List<WebElement> itemList = new WebDriverWait(driver, Duration.ofSeconds(20))
+				.until(ExpectedConditions.visibilityOfAllElements(pop.getAddItemDropdownSuggestion()));
+		for(int i=0 ; i<itemList.size(); i++) {
+			if(itemList.get(i).getText().contains(excel.getCellDataString(2, 1)) ) {
+				itemList.get(i).click();
+				break;
+			}
+		}
+
+		//selecting warehouse
+		pop.getWarehouse().click();		
+		List<WebElement> warehouseList = pop.getWarehouseList();
+		//new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOfAllElements(sop.getWarehouseDropdownSuggestion()));
+		for(int i=0 ; i<warehouseList.size(); i++) {
+			if(warehouseList.get(i).getText().contains(excel.getCellDataString(2, 4)) ) {
+				warehouseList.get(i).click();
+				break;
+			}
+		}
+
+		//Add Pack Size code
+		pop.getPackSize().clear();
+		pop.getPackSize().sendKeys(excel.getCellDataNumber(2, 3));
+
+		//Add Quantity code
+		pop.getQty().clear();
+		pop.getQty().sendKeys(excel.getCellDataNumber(2, 2));
+
+		//Add Lot number
+		pop.getLotNumber().sendKeys(excel.getCellDataNumber(2, 6));
+
+		//Rate
+		pop.getRate().clear();
+		pop.getRate().sendKeys(excel.getCellDataNumber(2, 7));
+
+		//click on Add line Item
+		pop.getAddLineItemClick().click();
+
+		//click on Save button
+		pop.getSaveButton().click();
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+/*
 	@Test(priority = 2)
 	public void add_COA_Document_to_PO() throws InterruptedException, IOException
 	{
@@ -130,8 +196,8 @@ public class PurchaseOrderTest extends base{
 		pop.getPurchase().click();
 		//purchaseOrder_number="JOPO-0922000251";
 		//driver.findElement(By.xpath("//a[contains(text(),'"+purchaseOrder_number+"')][1]")).click();
-		pop.getSearch().sendKeys(purchaseOrder_number);
-		Thread.sleep(2000);
+		//pop.getSearch().sendKeys(purchaseOrder_number);
+		//Thread.sleep(2000);
 		pop.getPOLink().click();
 		Thread.sleep(2000);
 		driver.switchTo().activeElement();
@@ -139,7 +205,8 @@ public class PurchaseOrderTest extends base{
 		pop.getAttachCOADocument().click();
 		pop.getUploadfile().click();
 		Thread.sleep(2000);
-		Runtime.getRuntime().exec("D:\\Zyler ERP Automation\\FileUpload.exe");
+		Runtime.getRuntime().exec("D:\\Zyler ERP Automation\\ZylerERP\\TestUploadFile\\FileUpload.exe"); 
+		//Runtime.getRuntime().exec("D:\\Zyler ERP Automation\\FileUpload.exe");
 		driver.switchTo().activeElement();
 		pop.getUploadFileCloseButton().click();
 		driver.switchTo().activeElement();
@@ -172,10 +239,11 @@ public class PurchaseOrderTest extends base{
 			System.out.println("Status After Updation:" + pop.getCurrentStatus().getText());
 	}
 	
-	@AfterTest
-	public void driverClose() 	
-	{
-
-		driver.close();
-	}
+*/	
+//	@AfterTest
+//	public void driverClose() 	
+//	{
+//
+//		driver.close();
+//	}
 }
