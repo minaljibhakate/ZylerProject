@@ -235,7 +235,7 @@ public class PurchaseOrderTest extends base{
 		System.out.println("------Started Executing Sorting Of Status in Purchase Order List Page------");
 		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
 		pop.getPurchase().click();//Click on Purchase option on Header
-		
+
 		System.out.println("Verifying Status dropdown is working as expected for 'New'");
 
 		pop.getStatusDropdown().click();
@@ -265,10 +265,10 @@ public class PurchaseOrderTest extends base{
 		Assert.assertTrue(status_count==statusColumnList.size());
 	}
 
-	
-	
-	
-	
+
+
+
+
 	/*
 	@Test
 	public void add_COA_Document_to_PO() throws InterruptedException, IOException

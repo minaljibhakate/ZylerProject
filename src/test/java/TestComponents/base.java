@@ -18,6 +18,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import pageObjects.LoginPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class base {
 	
@@ -40,12 +41,14 @@ public class base {
 		//browser initiation according to browser
 		if(browserName.equalsIgnoreCase("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", "D:\\Zyler ERP Automation\\ZylerERP\\Driver\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", "D:\\Zyler ERP Automation\\ZylerERP\\Driver\\chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver= new ChromeDriver();
 		}
 		else if(browserName.equalsIgnoreCase("firefox"))
 		{
-			System.setProperty("webdriver.gecko.driver", "D:\\Zyler ERP Automation\\ZylerERP\\Driver\\geckodriver.exe");
+			//System.setProperty("webdriver.gecko.driver", "D:\\Zyler ERP Automation\\ZylerERP\\Driver\\geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
 			driver= new FirefoxDriver();
 		}
 		
