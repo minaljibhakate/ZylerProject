@@ -1,21 +1,14 @@
 package utils;
-import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Random;
-
-import org.openqa.selenium.By;
 
 public class ExcelTest {
 	
 	public static void main(String[] args) {
 		
-		String dataExcelPath = System.getProperty("user.dir");
+		//String dataExcelPath = System.getProperty("user.dir");
 		
-		ExcelUtils excel = new ExcelUtils(dataExcelPath+"/TestDataExcel/TestData.xlsx", "Customer");
+		//ExcelUtils excel = new ExcelUtils(dataExcelPath+"/TestDataExcel/TestData.xlsx", "Customer");
 		
 		//excel.getRowCount();
 		//excel.getCellDataNumber(1, 1);

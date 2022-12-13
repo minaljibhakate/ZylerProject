@@ -15,7 +15,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import TestComponents.base;
 import pageObjects.PurchaseOrderPage;
-import pageObjects.SaleOrderPage;
 import utils.ExcelUtils;
 
 public class PurchaseOrderTest extends base{
@@ -296,10 +295,10 @@ public class PurchaseOrderTest extends base{
 	}
 	 */
 
-	//	@AfterTest
-	//	public void driverClose() 	
-	//	{
-	//
-	//		driver.close();
-	//	}
+	@AfterTest
+	public void driverClose() 	
+	{
+
+		driver.close();
+	}
 }
