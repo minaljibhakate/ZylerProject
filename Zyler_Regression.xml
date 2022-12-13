@@ -7,22 +7,20 @@
 
 	<test name="Regression Tests" preserve-order="true">
 		<classes>
-			<class name="GreenJeeva.EntityTest" />
-			<class name="GreenJeeva.Sales.EnquiriesTest" />
-			<class name="GreenJeeva.Sales.SaleOrderTest" />
-			<class name="GreenJeeva.Sales.QuotationsTest" />
+			<class name="GreenJeeva.Sales.e2e_enquiry_quotation_salesorder" />
+			<class name="GreenJeeva.Sales.e2e_convert_SO_to_packingList_Test" />
+			<class name="GreenJeeva.Sales.SaleOrderAddEditDelete" />
 			<class name="GreenJeeva.Sales.ToBeSourcedTest" />
-			<class name="GreenJeeva.Purchase.PurchaseOrderTest" />
-			<class name="GreenJeeva.Purchase.InboundTrackingTest" />
-			<class name="GreenJeeva.Purchase.AccountPayableTest" />	
-			<class name="GreenJeeva.Purchase.SourcingTest" />
+			<class name="GreenJeeva.Sales.EnquiryAddEditDeleteTest" />
 			<class name="GreenJeeva.Sales.DeletingProductFromMultipleList" />
-			<class name="GreenJeeva.Purchase.CancelRejectPOTest" />
 			<class name="GreenJeeva.Sales.CancelRejectSOTest" />
-			<class name="GreenJeeva.Purchase.RecordPayamentTest" />
 			<class name="GreenJeeva.Sales.RMATest" />
+			<class name="GreenJeeva.Sales.QuotationsEditDeleteTest" />
+			<class name="GreenJeeva.Purchase.e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory" />
+			<class name="GreenJeeva.Purchase.CancelRejectPOTest" />
+			<class name="GreenJeeva.Purchase.RecordPayamentTest" />
+			<class name="GreenJeeva.Purchase.PurchaseOrderTest" />
 			<class name="GreenJeeva.DeleteSOPO" />
-			<class name="GreenJeeva.Sales.convertSOtopackingListTest" />
 			<class name="GreenJeeva.Sales.SalesPriceEstimateTest" />
 		</classes>
 	</test> <!-- Test -->

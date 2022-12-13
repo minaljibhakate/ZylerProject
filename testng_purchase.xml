@@ -9,6 +9,7 @@
     		<class name="GreenJeeva.Purchase.e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory" />
 			<class name="GreenJeeva.Purchase.CancelRejectPOTest" />
 			<class name="GreenJeeva.Purchase.RecordPayamentTest" />
+			<class name="GreenJeeva.Purchase.PurchaseOrderTest" />
 			<class name="GreenJeeva.DeleteSOPO" />
     </classes>
   </test> <!-- Test -->
