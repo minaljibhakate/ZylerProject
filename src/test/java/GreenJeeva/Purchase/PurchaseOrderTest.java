@@ -9,11 +9,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import TestComponents.base;
 import pageObjects.PurchaseOrderPage;
+import pageObjects.SaleOrderPage;
 import utils.ExcelUtils;
 
 public class PurchaseOrderTest extends base{
@@ -121,18 +123,42 @@ public class PurchaseOrderTest extends base{
 		Thread.sleep(3000);
 	}
 
-	@Test(priority = 1)
+	@Test(priority =2)
+	public void PO_Updating_current_status() throws InterruptedException
+	{
+		System.out.println("------Started Executing Updating Current Status Blank to New------");
+		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
+
+		//Click on Sale option on Header
+		pop.getPurchase().click();
+
+		//pop.getSearch().clear();pop.getSearch().sendKeys(purchaseOrder_number);
+		Thread.sleep(2000);
+		//System.out.println("Current status:" + pop.getCurrentStatus().getText());
+
+		pop.getCurrentStatusSelect().click();
+		Select status = new Select(pop.getCurrentStatusSelect());
+		status.selectByVisibleText("New");
+		Thread.sleep(2000);
+		driver.switchTo().activeElement();
+		Thread.sleep(1000);
+		pop.getYesStatus().click(); 
+		Thread.sleep(1000);
+		//System.out.println("Status After Updation:" + pop.getCurrentStatus().getText());
+	}
+
+	@Test(priority = 3)
 	public void edit_purchase_order() throws IOException,InterruptedException
 	{
 		System.out.println("------Started Executing Edit Purchase Order------");
 		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "PurchaseOrder");		
 		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
 		pop.getPurchase().click();
-		
+
 		pop.getPOLink().click();
 		driver.switchTo().activeElement();
 		pop.getEditButton().click();
-		
+
 		//Add Item Code
 		pop.getAddItemDropdown().click();
 		pop.getAddItemDropdownSearch().sendKeys(excel.getCellDataString(2, 1));
@@ -177,18 +203,74 @@ public class PurchaseOrderTest extends base{
 
 		//click on Save button
 		pop.getSaveButton().click();
-		
-		
 	}
+
+	@Test(priority = 4)
+	public void delete_purchase_order() throws IOException,InterruptedException
+	{
+		System.out.println("------Started Executing Delete Purchase Order------");
+
+		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
+		pop.getPurchase().click();
+
+		pop.getPOLink().click();
+		driver.switchTo().activeElement();
+
+		Thread.sleep(5000);
+		//driver.switchTo().activeElement();
+		pop.getMoreButton().click();
+		pop.getDeleteButton().click();
+
+		driver.switchTo().alert().accept();
+
+		String sucess_message = pop.getSuccessMessage().getText();
+		String expected_success_message = "Purchase Order deleted Successfully";
+		Assert.assertTrue(sucess_message.contains(expected_success_message));
+		System.out.println("Message  : "+sucess_message.replace("×", ""));
+	}
+
+	@Test(priority=5)
+	public void salesorder_SortingOfStatus() throws InterruptedException
+	{
+		System.out.println("------Started Executing Sorting Of Status in Purchase Order List Page------");
+		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
+		pop.getPurchase().click();//Click on Purchase option on Header
+		
+		System.out.println("Verifying Status dropdown is working as expected for 'New'");
+
+		pop.getStatusDropdown().click();
+		pop.getStatusDropdown().click();
+		pop.getStatusDropdown().click();
+
+		List<WebElement> statusList = pop.getStatusList();
+		for(int i=0 ; i<statusList.size(); i++) {
+			if(statusList.get(i).getText().contains("New") ) {
+				statusList.get(i).click();
+				break;
+			}
+		}
+		Thread.sleep(3000);
+		List<WebElement> statusColumnList = pop.getStatusColumnList();
+		int status_count =0;
+		System.out.println("statusColumnList ==>"+statusColumnList.size());
+		for(int i=0 ; i<statusColumnList.size(); i++) {
+			if(statusColumnList.get(i).getText().contains("New") ) {
+				statusColumnList.get(i).click();
+				status_count++;
+			}
+			else 
+				break;
+		}
+		System.out.println("Status Count==>"+status_count);
+		Assert.assertTrue(status_count==statusColumnList.size());
+	}
+
 	
 	
 	
 	
-	
-	
-	
-/*
-	@Test(priority = 2)
+	/*
+	@Test
 	public void add_COA_Document_to_PO() throws InterruptedException, IOException
 	{
 		System.out.println("------Started Executing Add COA Document to Purchase Order------");
@@ -211,39 +293,13 @@ public class PurchaseOrderTest extends base{
 		pop.getUploadFileCloseButton().click();
 		driver.switchTo().activeElement();
 		pop.getPreviewCloseButton().click();
-
 	}
+	 */
 
-	@Test(priority =3)
-	public void PO_Updating_current_status() throws InterruptedException
-	{
-			System.out.println("------Started Executing Updating Current Status Blank to New------");
-			PurchaseOrderPage pop = new PurchaseOrderPage(driver);
-		
-			//Click on Sale option on Header
-			pop.getPurchase().click();
-			
-			pop.getSearch().clear();
-			pop.getSearch().sendKeys(purchaseOrder_number);
-			Thread.sleep(2000);
-			System.out.println("Current status:" + pop.getCurrentStatus().getText());
-		
-			pop.getCurrentStatusSelect().click();
-			Select status = new Select(pop.getCurrentStatusSelect());
-			status.selectByVisibleText("New");
-			Thread.sleep(2000);
-			driver.switchTo().activeElement();
-			Thread.sleep(1000);
-			pop.getYesStatus().click(); 
-			Thread.sleep(1000);
-			System.out.println("Status After Updation:" + pop.getCurrentStatus().getText());
-	}
-	
-*/	
-//	@AfterTest
-//	public void driverClose() 	
-//	{
-//
-//		driver.close();
-//	}
+	//	@AfterTest
+	//	public void driverClose() 	
+	//	{
+	//
+	//		driver.close();
+	//	}
 }

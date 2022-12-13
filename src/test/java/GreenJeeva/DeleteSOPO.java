@@ -197,7 +197,6 @@ public class DeleteSOPO extends base {
 		//click on Save button
 		pop.getSaveButton().click();
 
-		//Printing the Purchase order Generated
 		Thread.sleep(5000);
 		//driver.switchTo().activeElement();
 		pop.getMoreButton().click();

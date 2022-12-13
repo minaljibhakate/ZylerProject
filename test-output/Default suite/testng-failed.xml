@@ -3,14 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="GreenJeeva.Sales.SaleOrderAddEditDelete">
+      <class name="GreenJeeva.Purchase.PurchaseOrderTest">
         <methods>
-          <include name="edit_Sales_Order"/>
-          <include name="delete_Sales_Order"/>
           <include name="driverOpen"/>
-          <include name="salesorder_SortingOfStatus"/>
+          <include name="add_purchase_order"/>
         </methods>
-      </class> <!-- GreenJeeva.Sales.SaleOrderAddEditDelete -->
+      </class> <!-- GreenJeeva.Purchase.PurchaseOrderTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

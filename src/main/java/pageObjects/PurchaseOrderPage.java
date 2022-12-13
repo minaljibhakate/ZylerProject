@@ -62,6 +62,12 @@ public class PurchaseOrderPage {
 	//Edit button
 	private By edit_button = By.xpath("(//a[@class='btn btn-default btn-with-tooltip float-left mr-2'])[1]");
 
+
+	//Status
+	private By status_dropdown = By.xpath("(//button[@type='button'])[6]");
+	private By status_list = By.xpath("//div[@class='dropdown-menu show']//li//a");
+	private By status_column_list = By.xpath("//table[@id='table-purchases']//div[@class='input-group-text']");
+
 	public WebElement getPurchase()
 	{
 		return driver.findElement(purchase_link);
@@ -208,5 +214,19 @@ public class PurchaseOrderPage {
 	public WebElement getEditButton()
 	{
 		return driver.findElement(edit_button);
+	}
+	//status
+	//status filter
+	public WebElement getStatusDropdown()
+	{
+		return driver.findElement(status_dropdown);
+	}
+	public List<WebElement> getStatusList()
+	{
+		return driver.findElements(status_list);
+	}
+	public List<WebElement> getStatusColumnList()
+	{
+		return driver.findElements(status_column_list);
 	}
 }
