@@ -34,7 +34,7 @@ public class AccountPayableTest extends base {
 //		pot.add_Purchase_Order();
 //		pot.add_COA_Document_to_PO();
 		
-		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "AccountPayable");	
+		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "AccountPayable");	
 		
 		System.out.println("------Started Executing Purchase Order to Push to Inventory------");
 		AccountPayablePage app = new AccountPayablePage(driver);

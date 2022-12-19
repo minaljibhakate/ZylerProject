@@ -8,8 +8,7 @@
 	<test name="Regression Tests" preserve-order="true">
 		<classes>
 			<class name="GreenJeeva.Sales.e2e_enquiry_quotation_salesorder" />
-			<class
-				name="GreenJeeva.Sales.e2e_convert_SO_to_packingList_Test" />
+			<class name="GreenJeeva.Sales.e2e_convert_SO_to_packingList_Test" />
 			<class name="GreenJeeva.Sales.SaleOrderAddEditDelete" />
 			<class name="GreenJeeva.Sales.ToBeSourcedTest" />
 			<class name="GreenJeeva.Sales.EnquiryAddEditDeleteTest" />
@@ -21,6 +20,8 @@
 			<class name="GreenJeeva.Purchase.CancelRejectPOTest" />
 			<class name="GreenJeeva.Purchase.RecordPayamentTest" />
 			<class name="GreenJeeva.Purchase.PurchaseOrderTest" />
+			<class name="GreenJeeva.Purchase.InboundTrackingTest" />
+			<class name="GreenJeeva.Purchase.RequisitionTest" />
 			<class name="GreenJeeva.DeleteSOPO" />
 		</classes>
 	</test> <!-- Test -->

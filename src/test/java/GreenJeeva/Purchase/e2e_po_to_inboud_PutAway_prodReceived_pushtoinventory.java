@@ -39,7 +39,7 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 	public void add_Purchase_Order() throws IOException,InterruptedException
 	{
 		System.out.println("------Started Executing Add Purchase Order------");
-		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "PurchaseOrder");		
+		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "PurchaseOrder");		
 		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
 		pop.getPurchase().click();
 		//pop.getHamburgerMenuClick().click();
@@ -158,7 +158,7 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 	{
 		System.out.println("------Started Executing Add Inbound Tracking------");
 		System.out.println("purchaseOrderNumber in addInboundTracking ==>"+ purchaseOrder_number);
-		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "InboundTracking");		
+		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "InboundTracking");		
 		itp = new InboundTrackingPage(driver);
 		itp.getPurchase().click();
 		itp.getHamburgerMenuClick().click();
@@ -315,7 +315,7 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 //		pot.add_Purchase_Order();
 //		pot.add_COA_Document_to_PO();
 		
-		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "AccountPayable");	
+		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "AccountPayable");	
 		
 		System.out.println("------Started Executing Purchase Order to Push to Inventory------");
 		AccountPayablePage app = new AccountPayablePage(driver);

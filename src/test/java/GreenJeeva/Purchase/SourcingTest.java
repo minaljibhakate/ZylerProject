@@ -29,7 +29,7 @@ public class SourcingTest extends base {
 	public void addNewSourcing() throws IOException,InterruptedException
 	{
 		System.out.println("------Started Executing Add New Sourcing------");
-		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "Sourcing");		
+		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "Sourcing");		
 		SourcingPage sp = new SourcingPage(driver);
 		sp.getPurchase().click();
 		sp.getHamburgerMenuClick().click();

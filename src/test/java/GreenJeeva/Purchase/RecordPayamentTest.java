@@ -35,7 +35,7 @@ public class RecordPayamentTest extends base{
 	public void record_payent_for_Purchase_Order() throws InterruptedException
 	{
 		System.out.println("------Started Executing Record Payment for Purchase Order------");
-		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "PurchaseOrder");		
+		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "PurchaseOrder");		
 		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
 		pop.getPurchase().click();
 		//pop.getHamburgerMenuClick().click();

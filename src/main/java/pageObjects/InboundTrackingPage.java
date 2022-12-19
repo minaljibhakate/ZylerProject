@@ -7,89 +7,107 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class InboundTrackingPage {
-	
+
 	public WebDriver driver;
 	public InboundTrackingPage(WebDriver driver)
 	{
 		this.driver=driver;
 	}
-	
+
 	//Purchase link
 	private By purchase_link = By.xpath("//a[normalize-space()='Purchase']");
-		
+
 	//Hamburger Menu
 	private By hamburgermenu_button = By.xpath("//span[@class='material-icons left']");
-	
+
 	//Inbound tracking menu
 	private By inboundtracking_menu = By.xpath("(//a[normalize-space()='Inbound Tracking'])[1]");
 	//private By inboundtracking_menu = By.xpath("//div[@class='page-wrapper']//li[10]//a[1]");// (.//a[contains(text(),'Inbound Tracking')])[3]
-	
+
 	//Create new inbound tracking
 	private By create_new_inbound_tracking = By.xpath("//a[normalize-space()='Create New Inbound Tracking']");
 	//private By create_new_inbound_tracking = By.xpath("(.//a[contains(text(),'Inbound Tracking')])[2]");
-	
+
 	//Vendor
 	private By vendor_dropdown = By.xpath("//button[@data-id='clientid']");
 	private By vendor_search = By.xpath("(//input[@aria-label='Search'])[1]");
 	private By vendor_list = By.xpath("//div[@aria-expanded='true']//ul[@class='dropdown-menu inner show']//li");
-	
+
 	//Vendor FDA reg number
 	private By fda_number_txt = By.xpath("//input[@id='reg_no']");
-	
+
 	private By hsCode_txt = By.xpath("//input[@id='hs_code']");
 	private By transport_txt = By.xpath("//input[@id='transport']");
-	
+
 	//Country
 	private By country_dropdown = By.xpath("//button[@title='Select country']");
 	private By country_list = By.xpath("//ul[@class='dropdown-menu inner show']//li");
-	
+
 	//add item
 	private By add_item_dropdown = By.xpath("//button[@data-id='item_select_inbound_tracking']");
 	private By add_item_dropdown_search = By.xpath("(//input[@aria-label='Search'])[2]");
 	private By add_item_list = By.xpath("//div[@aria-expanded='true']//ul[@class='dropdown-menu inner show']//li");
-		
+
 	//purchase order
 	private By purchase_order_dropdown = By.xpath("//button[@data-id='purchase_order']");
 	private By purchaseOrder_search =By.xpath("(//input[@aria-label='Search'])[3]");
 	private By purchaseOrder_list = By.xpath("//div[@aria-expanded='true']//ul[@class='dropdown-menu inner show']//li");
-	
+
 	//Quantity
 	private By qty_txt = By.xpath("//input[@name='quantity']");
-	
+
 	//warehouse
 	private By warehouse = By.xpath("//div[contains(text(),'Select Warehouse')]");
 	private By warehouse_list = By.xpath("//ul[@class='dropdown-menu inner show']//li");
-	
+
 	//line item add
 	private By add_line_item_click = By.xpath("//i[@class='fas fa-plus-circle']");
-	
+
 	//Save button
 	private By save_button =By.xpath("//button[normalize-space()='Save']");
-	
+
 	//Success message
 	private By success_msg = By.xpath("//div[@class='alert alert-success alert-dismissible']");
-									   //div[@class='alert alert-success alert-dismissible']
+	//div[@class='alert alert-success alert-dismissible']
 	//More button message
 	private By more_btn = By.xpath("(//button[@type='button'])[5]");
-	
+
 	//Genrate putaway sheet button
 	private By generate_putaway_sheet = By.xpath("//a[normalize-space()='Generate Putway sheet']");
-	
+
 	//product name
 	private By productName_txt = By.cssSelector("tr[class='sortable'] td:nth-child(3)");
-	
+
 	//product received button
 	private By product_received_btn = By.xpath("//a[normalize-space()='Product Received']");
-	
+
 	//recived Date
 	private By received_date = By.xpath("//input[@id='receive_date']");
 	private By received_date_select = By.xpath("(//td[contains(@class,'xdsoft_current')]//div)[2]");
-	
+
 	//Preview CLose button
 	//private By preview_close_button = By.xpath("(//button[@type='button'])[7]");
 	private By preview_close_button = By.cssSelector("div[class='modal-content p-3'] button[aria-label='Close'] i[class='material-icons']");
+
+	//table Id click
+	private By table_id_click = By.xpath("//table[@id='table-inbTracking']//tr[1]//td[1]//a");
+
+	//Success message
+	private By del_success_msg = By.xpath("//div[@class='alert alert-danger alert-dismissible']");
+
+	//delete bbutton
+	private By delete_button = By.xpath("//a[normalize-space()='Delete']");
 	
+	//type filter
+	private By type_filer = By.xpath("(//button[@type='button'])[3]");
+			
+	//internation type
+	private By international_filter = By.xpath("//a[normalize-space()='International']");
 	
+	//IB tye column list
+//	private By IB_type_column_list = By.xpath("//table//tr//td[2]");
+	private By IB_type_column_list = By.xpath("(//td[@title='International'][normalize-space()='International'])");
+
 	public WebElement getPurchase()
 	{
 		return driver.findElement(purchase_link);
@@ -138,7 +156,7 @@ public class InboundTrackingPage {
 	{
 		return driver.findElements(country_list);
 	}
-	
+
 	public WebElement getAddItemDropdown()
 	{
 		return driver.findElement(add_item_dropdown);
@@ -151,7 +169,7 @@ public class InboundTrackingPage {
 	{
 		return driver.findElements(add_item_list);
 	}
-	
+
 	public WebElement getPurchaseOrderDropdown()
 	{
 		return driver.findElement(purchase_order_dropdown);
@@ -164,12 +182,12 @@ public class InboundTrackingPage {
 	{
 		return driver.findElements(purchaseOrder_list);
 	}
-	
+
 	public WebElement getQuantity()
 	{
 		return driver.findElement(qty_txt);
 	}
-	
+
 	public WebElement getWarehouse()
 	{
 		return driver.findElement(warehouse);
@@ -186,7 +204,7 @@ public class InboundTrackingPage {
 	{
 		return driver.findElement(save_button);
 	}
-	
+
 	public WebElement getSuccessMessage()
 	{
 		return driver.findElement(success_msg);
@@ -211,8 +229,8 @@ public class InboundTrackingPage {
 	{
 		return driver.findElement(received_date);
 	}
-	
-	
+
+
 	public WebElement getReceivedDateSelect()
 	{
 		return driver.findElement(received_date_select);
@@ -221,5 +239,31 @@ public class InboundTrackingPage {
 	{
 		return driver.findElement(preview_close_button);
 	}
+	public WebElement getTableIDClick()
+	{
+		return driver.findElement(table_id_click);
+	}
+	public WebElement getDeleteButton()
+	{
+		return driver.findElement(delete_button);
+	}
+	public WebElement getDeleteSuccessMessage()
+	{
+		return driver.findElement(del_success_msg);
+	}
 	
+	public WebElement getTypeFilter()
+	{
+		return driver.findElement(type_filer);
+	}
+	
+	public WebElement getInternationalFilter()
+	{
+		return driver.findElement(international_filter);
+	}
+	
+	public List<WebElement> getIBColunmnList()
+	{
+		return driver.findElements(IB_type_column_list);
+	}
 }

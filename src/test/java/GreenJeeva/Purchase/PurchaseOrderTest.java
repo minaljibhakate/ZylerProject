@@ -33,7 +33,7 @@ public class PurchaseOrderTest extends base{
 	public void add_purchase_order() throws IOException,InterruptedException
 	{
 		System.out.println("------Started Executing Add Purchase Order------");
-		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "PurchaseOrder");		
+		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "PurchaseOrder");		
 		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
 		pop.getPurchase().click();
 		//pop.getHamburgerMenuClick().click();
@@ -150,7 +150,7 @@ public class PurchaseOrderTest extends base{
 	public void edit_purchase_order() throws IOException,InterruptedException
 	{
 		System.out.println("------Started Executing Edit Purchase Order------");
-		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPTestDataExcel.xlsx", "PurchaseOrder");		
+		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "PurchaseOrder");		
 		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
 		pop.getPurchase().click();
 

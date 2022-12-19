@@ -11,6 +11,8 @@
 			<class name="GreenJeeva.Purchase.RecordPayamentTest" />
 			<class name="GreenJeeva.Purchase.PurchaseOrderTest" />
 			<class name="GreenJeeva.DeleteSOPO" />
+			<class name="GreenJeeva.Purchase.InboundTrackingTest" />
+			<class name="GreenJeeva.Purchase.RequisitionTest" />
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
