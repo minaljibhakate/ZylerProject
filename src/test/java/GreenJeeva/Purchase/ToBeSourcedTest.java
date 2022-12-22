@@ -1,4 +1,4 @@
-package GreenJeeva.Sales;
+package GreenJeeva.Purchase;
 
 import java.awt.AWTException;
 import java.io.IOException;

@@ -4,14 +4,18 @@
 <th>Method name</th>
 <th>Groups</th>
 </tr><tr>
-<td>GreenJeeva.Sales.RMATest</td>
+<td>GreenJeeva.Purchase.InboundTrackingTest</td>
 <td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@Test</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td>SO_to_invoice_to_RMA</td>
+<td>delete_Inbound_Tracking</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>sorting_by_type_Inbound_Tracking</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@BeforeClass</td>
@@ -26,22 +30,14 @@
 <td align='center' colspan='3'>@AfterClass</td>
 </tr>
 <tr>
-<td>GreenJeeva.Sales.e2e_enquiry_quotation_salesorder</td>
+<td>GreenJeeva.Purchase.RecordPayamentTest</td>
 <td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@Test</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td>convert_To_SalesOrder</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td>&nbsp;</td>
-<td>add_New_Enquiry</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td>&nbsp;</td>
-<td>convert_To_Quotation</td>
+<td>record_payent_for_Purchase_Order</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@BeforeClass</td>
@@ -56,18 +52,30 @@
 <td align='center' colspan='3'>@AfterClass</td>
 </tr>
 <tr>
-<td>GreenJeeva.Sales.SaleOrderTest</td>
+<td>GreenJeeva.Purchase.RequisitionTest</td>
 <td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@Test</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td>add_Sales_Order</td>
+<td>add_requisition</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>SO_Updating_current_status</td>
+<td>requitision_SortingOfCategory</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>reject_requisition</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>edit_requisition</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>delete_requisition</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@BeforeClass</td>
@@ -82,30 +90,18 @@
 <td align='center' colspan='3'>@AfterClass</td>
 </tr>
 <tr>
-<td>GreenJeeva.Sales.EnquiryAddEditDeleteTest</td>
+<td>GreenJeeva.Purchase.CancelRejectPOTest</td>
 <td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@Test</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td>Enquiry_SortingOfPriorityVerification</td>
+<td>reject_Purchase_Order</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>edit_existing_Enquiry</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td>&nbsp;</td>
-<td>Enquiry_SortingOfStatus</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td>&nbsp;</td>
-<td>add_New_Enquiry</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td>&nbsp;</td>
-<td>delete_existing_Enquiry</td>
+<td>cancel_Purchase_Order</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@BeforeClass</td>
@@ -120,22 +116,34 @@
 <td align='center' colspan='3'>@AfterClass</td>
 </tr>
 <tr>
-<td>GreenJeeva.Sales.DeletingProductFromMultipleList</td>
+<td>GreenJeeva.Purchase.e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory</td>
 <td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@Test</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td>verify_deleted_product_in_enquirylist</td>
+<td>gerenate_PutAway_Sheet</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>Delete_products_while_converting_to_quotation</td>
+<td>PO_push_to_inventory</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>add_Enquiry_Multiple_Products</td>
+<td>add_Inbound_Tracking</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>add_COA_Document_to_PO</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>add_Purchase_Order</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>verifying_product_received_functionality_of_PO</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@BeforeClass</td>
@@ -150,18 +158,18 @@
 <td align='center' colspan='3'>@AfterClass</td>
 </tr>
 <tr>
-<td>GreenJeeva.Sales.CancelRejectSOTest</td>
+<td>GreenJeeva.DeleteSOPO</td>
 <td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@Test</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td>reject_Sales_Order</td>
+<td>delete_Purchase_Order</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>cancel_Sales_Order</td>
+<td>delete_Sales_Order</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@BeforeClass</td>
@@ -176,14 +184,30 @@
 <td align='center' colspan='3'>@AfterClass</td>
 </tr>
 <tr>
-<td>GreenJeeva.Sales.e2e_convert_SO_to_packingList_Test</td>
+<td>GreenJeeva.Purchase.PurchaseOrderTest</td>
 <td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@Test</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td>convert_so_to_packingList</td>
+<td>add_purchase_order</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>PO_Updating_current_status</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>salesorder_SortingOfStatus</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>delete_purchase_order</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>edit_purchase_order</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@BeforeClass</td>
@@ -198,18 +222,18 @@
 <td align='center' colspan='3'>@AfterClass</td>
 </tr>
 <tr>
-<td>GreenJeeva.Sales.ToBeSourcedTest</td>
+<td>GreenJeeva.Purchase.ToBeSourcedTest</td>
 <td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@Test</td>
 </tr>
-<tr>
-<td>&nbsp;</td>
-<td>add_Enquiry_for_to_be_sourced</td>
-<td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
 <td>verifyToBeSourced</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>add_Enquiry_for_to_be_sourced</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>

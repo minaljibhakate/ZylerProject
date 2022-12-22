@@ -142,7 +142,7 @@ public class PurchaseOrderTest extends base{
 		driver.switchTo().activeElement();
 		Thread.sleep(1000);
 		pop.getYesStatus().click(); 
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		//System.out.println("Status After Updation:" + pop.getCurrentStatus().getText());
 	}
 

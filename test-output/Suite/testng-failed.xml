@@ -4,47 +4,22 @@
   <listeners>
     <listener class-name="TestComponents.Listeners"/>
   </listeners>
-  <test thread-count="5" name="Regression Tests(failed)">
+  <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="GreenJeeva.Purchase.SourcingTest">
+      <class name="GreenJeeva.Purchase.PurchaseOrderTest">
         <methods>
-          <include name="addNewSourcing"/>
-          <include name="driverClose"/>
-          <include name="driverOpen"/>
-        </methods>
-      </class> <!-- GreenJeeva.Purchase.SourcingTest -->
-      <class name="GreenJeeva.Sales.EnquiriesTest">
-        <methods>
-          <include name="Enquiry_SortingOfStatus"/>
+          <include name="edit_purchase_order"/>
           <include name="driverOpen"/>
           <include name="driverClose"/>
         </methods>
-      </class> <!-- GreenJeeva.Sales.EnquiriesTest -->
-      <class name="GreenJeeva.Purchase.InboundTrackingTest">
+      </class> <!-- GreenJeeva.Purchase.PurchaseOrderTest -->
+      <class name="GreenJeeva.Purchase.e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory">
         <methods>
-          <include name="gerenate_PutAway_Sheet"/>
-          <include name="add_Inbound_Tracking"/>
-          <include name="driverClose"/>
-          <include name="driverOpen"/>
-        </methods>
-      </class> <!-- GreenJeeva.Purchase.InboundTrackingTest -->
-      <class name="GreenJeeva.Sales.convertSOtopackingListTest">
-        <methods>
-          <include name="convert_so_to_packingList"/>
-          <include name="driverClose"/>
-          <include name="driverOpen"/>
-        </methods>
-      </class> <!-- GreenJeeva.Sales.convertSOtopackingListTest -->
-      <class name="GreenJeeva.Sales.ToBeSourcedTest">
-        <methods>
-          <include name="enquiryMovedToAssigned"/>
-          <include name="SortingOfPriorityVerificationInNotAssigned"/>
           <include name="driverOpen"/>
           <include name="driverClose"/>
-          <include name="verifyToBeSourced"/>
-          <include name="SortingOfPriorityVerificationInAssigned"/>
+          <include name="PO_push_to_inventory"/>
         </methods>
-      </class> <!-- GreenJeeva.Sales.ToBeSourcedTest -->
+      </class> <!-- GreenJeeva.Purchase.e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory -->
     </classes>
-  </test> <!-- Regression Tests(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -10,7 +10,6 @@
 			<class name="GreenJeeva.Sales.e2e_enquiry_quotation_salesorder" />
 			<class name="GreenJeeva.Sales.e2e_convert_SO_to_packingList_Test" />
 			<class name="GreenJeeva.Sales.SaleOrderAddEditDelete" />
-			<class name="GreenJeeva.Sales.ToBeSourcedTest" />
 			<class name="GreenJeeva.Sales.EnquiryAddEditDeleteTest" />
 			<class name="GreenJeeva.Sales.DeletingProductFromMultipleList" />
 			<class name="GreenJeeva.Sales.CancelRejectSOTest" />
@@ -22,6 +21,7 @@
 			<class name="GreenJeeva.Purchase.PurchaseOrderTest" />
 			<class name="GreenJeeva.Purchase.InboundTrackingTest" />
 			<class name="GreenJeeva.Purchase.RequisitionTest" />
+			<class name="GreenJeeva.Purchase.ToBeSourcedTest" />
 			<class name="GreenJeeva.DeleteSOPO" />
 		</classes>
 	</test> <!-- Test -->

@@ -13,6 +13,7 @@
 			<class name="GreenJeeva.DeleteSOPO" />
 			<class name="GreenJeeva.Purchase.InboundTrackingTest" />
 			<class name="GreenJeeva.Purchase.RequisitionTest" />
+			<class name="GreenJeeva.Purchase.ToBeSourcedTest" />
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
