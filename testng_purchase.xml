@@ -14,6 +14,7 @@
 			<class name="GreenJeeva.Purchase.InboundTrackingTest" />
 			<class name="GreenJeeva.Purchase.RequisitionTest" />
 			<class name="GreenJeeva.Purchase.ToBeSourcedTest" />
+			<class name="GreenJeeva.Purchase.SourcingTest" />
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

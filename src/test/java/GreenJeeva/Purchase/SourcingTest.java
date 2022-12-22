@@ -27,7 +27,7 @@ public class SourcingTest extends base {
 	}
 
 	@Test(enabled = false)
-	public void addNewSourcing() throws IOException,InterruptedException
+	public void add_new_sourcing() throws IOException,InterruptedException
 	{
 		System.out.println("------Started Executing Add New Sourcing------");
 		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "Sourcing");		
@@ -131,7 +131,8 @@ public class SourcingTest extends base {
 		//System.out.println("SKU========>>"+ sku);
 		Assert.assertTrue(sku.matches(excelData));	
 	}
-	@Test
+	
+	@Test(priority = 2)
 	public void add_latest_sourcing_price() throws IOException,InterruptedException
 	{
 		String success_text_message,  expected_success_message;
@@ -188,8 +189,7 @@ public class SourcingTest extends base {
 		sp.getCalendarNextButton().click();
 		Thread.sleep(2000);
 		driver.switchTo().activeElement();
-		//driver.findElement(By.cssSelector("td[class='xdsoft_date xdsoft_day_of_week1 xdsoft_date xdsoft_current'] div")).click();
-		driver.findElement(By.xpath("(//div[@class='xdsoft_calendar'])[1]")).click();
+		sp.getDateSelection().click();	//driver.findElement(By.xpath("(//div[@class='xdsoft_calendar'])[1]")).click();
 
 		sp.getSaveButton().click();	
 
@@ -219,12 +219,12 @@ public class SourcingTest extends base {
 		System.out.println("Deleted text: "+ success_text_message);
 		expected_success_message = "Sourcing price Deleted";
 		Assert.assertTrue(success_text_message.contains(expected_success_message));
-		
+
 	}
 
-	//	@AfterTest
-	//	public void driverClose() 	
-	//	{
-	//		driver.close();
-	//	}
+	@AfterTest
+	public void driverClose() 	
+	{
+		driver.close();
+	}
 }

@@ -104,6 +104,9 @@ public class SourcingPage {
 	//	Calendar next button
 	private By calendar_next_button = By.xpath("//div[@class='xdsoft_mounthpicker']//button[3]");
 
+	//	Date Selection
+	private By date_selection = By.xpath("(//div[@class='xdsoft_calendar'])[1]");
+
 	//	Latest Sourcing Data Text
 	private By latest_sourcing_data_text = By.xpath("//p[@id='latest_sourcing_dat_preview']");
 
@@ -113,11 +116,8 @@ public class SourcingPage {
 	//	Yes Button
 	private By yes_button = By.xpath("//button[normalize-space()='Yes']");
 
-	//		SUccess Message
-		private By success_message = By.xpath("//div[@class='sweet-alert hideSweetAlert']");
-
-	//		//
-	//	private By abc = By.xpath("");
+	//	SUccess Message
+	private By success_message = By.xpath("//div[@class='sweet-alert hideSweetAlert']");
 
 	public WebElement getPurchase()
 	{
@@ -277,15 +277,12 @@ public class SourcingPage {
 	{
 		return driver.findElement(yes_button);
 	}
-		public WebElement getSuccessMessage()
-		{
-			return driver.findElement(success_message);
-		}
-//	public WebElement get()
-	//	{
-	//		return driver.findElement();
-	//	}
-}//	public WebElement get()
-//	{
-//		return driver.findElement();
-//	}
+	public WebElement getSuccessMessage()
+	{
+		return driver.findElement(success_message);
+	}
+	public WebElement getDateSelection()
+	{
+		return driver.findElement(date_selection);
+	}
+}
