@@ -25,7 +25,7 @@
 			<class name="GreenJeeva.Purchase.RequisitionTest" />
 			<class name="GreenJeeva.Purchase.ToBeSourcedTest" />
 			<class name="GreenJeeva.Purchase.SourcingTest" />
-			<class name="GreenJeeva.DeleteSOPO" />
+			<class name="GreenJeeva.Purchase.RFQTest" />
 			<class name="GreenJeeva.Sales.SalesPriceEstimateTest" />
 		</classes>
 	</test> <!-- Test -->

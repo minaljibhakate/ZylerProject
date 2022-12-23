@@ -23,7 +23,7 @@
 			<class name="GreenJeeva.Purchase.RequisitionTest" />
 			<class name="GreenJeeva.Purchase.ToBeSourcedTest" />
 			<class name="GreenJeeva.Purchase.SourcingTest" />
-			<class name="GreenJeeva.DeleteSOPO" />
+			<class name="GreenJeeva.Purchase.RFQTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
