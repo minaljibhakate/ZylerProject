@@ -85,8 +85,6 @@ public class RFQPage {
 	{
 		return driver.findElement(quantity);
 	}
-	
-	
 	public WebElement getPreferredVendor()
 	{
 		return driver.findElement(preferred_vendor);
@@ -123,20 +121,5 @@ public class RFQPage {
 	{
 		return driver.findElement(edit_button);
 	}
-//	public WebElement get()
-//	{
-//		return driver.findElement();
-//	}
-//	public WebElement get()
-//	{
-//		return driver.findElement();
-//	}
-//	public WebElement get()
-//	{
-//		return driver.findElement();
-//	}
-//	public WebElement get()
-//	{
-//		return driver.findElement();
-//	}
+
 }

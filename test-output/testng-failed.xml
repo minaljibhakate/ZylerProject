@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="GreenJeeva.Purchase.RFQTest">
+      <class name="GreenJeeva.Purchase.ReceivedQuotationTest">
         <methods>
           <include name="driverOpen"/>
-          <include name="edit_rfq"/>
-          <include name="add_rfq"/>
+          <include name="received_quotation_convert_to_purchase"/>
         </methods>
-      </class> <!-- GreenJeeva.Purchase.RFQTest -->
+      </class> <!-- GreenJeeva.Purchase.ReceivedQuotationTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

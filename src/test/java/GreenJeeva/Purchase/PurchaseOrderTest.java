@@ -53,7 +53,7 @@ public class PurchaseOrderTest extends base{
 			}
 		}
 
-		//selecting warehouse
+		//selecting Currency
 		pop.getCurrecy().click();
 		pop.getCurrencySearch().sendKeys(excel.getCellDataString(1, 5));
 		Thread.sleep(2000);
