@@ -68,6 +68,36 @@ public class PurchaseOrderPage {
 	private By status_list = By.xpath("//div[@class='dropdown-menu show']//li//a");
 	private By status_column_list = By.xpath("//table[@id='table-purchases']//div[@class='input-group-text']");
 
+	//notes
+	private By notes = By.xpath("//a[normalize-space()='Notes']");
+
+	//note description
+	private By note_description = By.xpath("//textarea[@id='description']");
+	
+	//add Note
+	private By add_note = By.xpath("//button[normalize-space()='Add Note']");
+	
+	//Note verification
+	private By note_added = By.xpath("(//div[@id='purchase_notes_area']//div[@class='text-ellipsis'])[1]");
+	
+	//Print
+	private By print = By.xpath("//i[normalize-space()='print']");
+	
+	//download PDF
+	private By download_pdf = By.xpath("//i[@class='fa fa-file-pdf-o']");//(//a[@class='btn btn-default btn-with-tooltip float-left mr-2'])[3]
+	
+	//view as client
+	private By view_as_client = By.xpath("//a[normalize-space()='View purchase as Client']");
+	
+	//attach a file
+	private By attach_file = By.xpath("//a[normalize-space()='Attach File']");
+	
+	//sales upload
+	private By sales_upload = By.xpath("//form[@id='sales-upload']");
+	
+	//sales upload close
+	private By sales_upload_close = By.xpath("(//i[@class='material-icons'][normalize-space()='navigate_next'])[3]");
+
 	public WebElement getPurchase()
 	{
 		return driver.findElement(purchase_link);
@@ -229,4 +259,46 @@ public class PurchaseOrderPage {
 	{
 		return driver.findElements(status_column_list);
 	}
+	
+	public WebElement getNotes()
+	{
+		return driver.findElement(notes);
+	}
+	public WebElement getNoteDescription()
+	{
+		return driver.findElement(note_description);
+	}
+	public WebElement getAddNotes()
+	{
+		return driver.findElement(add_note);
+	}
+	public WebElement getNoteAdded()
+	{
+		return driver.findElement(note_added);
+	}
+	public WebElement getPrint()
+	{
+		return driver.findElement(print);
+	}
+	public WebElement getDownloadPdf()
+	{
+		return driver.findElement(download_pdf);
+	}
+	public WebElement getViewAsClient()
+	{
+		return driver.findElement(view_as_client);
+	}
+	public WebElement getAttachFile()
+	{
+		return driver.findElement(attach_file);
+	}
+	public WebElement getSalesUpload()
+	{
+		return driver.findElement(sales_upload);
+	}
+	public WebElement getSalesUploadClose()
+	{
+		return driver.findElement(sales_upload_close);
+	}
 }
+

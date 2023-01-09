@@ -3,7 +3,9 @@ package GreenJeeva.Purchase;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,6 +23,9 @@ public class PurchaseOrderTest extends base{
 
 	static String  purchaseOrder_number;
 	WebDriver driver;
+	String parent,  child_window;
+	Set<String>s;
+	Iterator<String> I1;
 
 	@BeforeTest
 	public void driverOpen() throws IOException, AWTException
@@ -229,7 +234,7 @@ public class PurchaseOrderTest extends base{
 	}
 
 	@Test(priority=5)
-	public void salesorder_SortingOfStatus() throws InterruptedException
+	public void purchaseorder_SortingOfStatus() throws InterruptedException
 	{
 		System.out.println("------Started Executing Sorting Of Status in Purchase Order List Page------");
 		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
@@ -265,9 +270,135 @@ public class PurchaseOrderTest extends base{
 	}
 
 
+	@Test(priority = 6)
+	public void add_note_purchase_order() throws IOException,InterruptedException
+	{
+		System.out.println("------Started Executing Add Note to Purchase Order------");
+		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "PurchaseOrder");		
+		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
+		pop.getPurchase().click();
 
+		pop.getPOLink().click();
+		Thread.sleep(3000);
+		driver.switchTo().activeElement();
+		Thread.sleep(3000);
+		pop.getNotes().click();
+		pop.getNoteDescription().sendKeys(excel.getCellDataString(1, 8));
 
+		pop.getAddNotes().click();
 
+		Assert.assertTrue(pop.getNoteAdded().getText().contains(excel.getCellDataString(1, 8)));
+
+		pop.getPreviewCloseButton1().click();
+	}
+
+	@Test(priority = 7)
+	public void download_pdf_purchase_order() throws IOException,InterruptedException
+	{
+		System.out.println("------Started Executing Download PDF Purchase Order------");
+		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
+		pop.getPurchase().click();
+
+		pop.getPOLink().click();
+		Thread.sleep(3000);
+		driver.switchTo().activeElement();
+		Thread.sleep(3000);
+		pop.getDownloadPdf().click();
+		Thread.sleep(3000); //		driver.get("chrome://downloads/");
+		pop.getPreviewCloseButton1().click();
+	}
+
+	@Test(priority = 8)
+	public void attach_file_client_purchase_order() throws IOException,InterruptedException
+	{
+		System.out.println("------Started Executing Attach File For Purchase Order------");
+		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
+		pop.getPurchase().click();
+
+		pop.getPOLink().click();
+		Thread.sleep(3000);
+		driver.switchTo().activeElement();
+		Thread.sleep(3000);
+		pop.getMoreButton().click();
+		pop.getAttachFile().click();
+
+		pop.getSalesUpload().click();
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec(dataExcelPath+"\\TestUploadFile\\FileUpload.exe"); 
+		//Runtime.getRuntime().exec("D:\\Zyler ERP Automation\\FileUpload.exe");
+		driver.switchTo().activeElement();
+		pop.getSalesUploadClose().click();
+		driver.switchTo().activeElement();
+		pop.getPreviewCloseButton().click();
+	}
+
+	@Test(priority = 9)
+	public void view_as_client_purchase_order() throws IOException,InterruptedException
+	{
+		System.out.println("------Started Executing View As Client For Purchase Order------");
+		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
+		pop.getPurchase().click();
+
+		pop.getPOLink().click();
+		Thread.sleep(3000);
+		driver.switchTo().activeElement();
+		Thread.sleep(3000);
+		pop.getMoreButton().click();
+		pop.getViewAsClient().click();
+
+		parent=driver.getWindowHandle();
+		s=driver.getWindowHandles();
+		I1= s.iterator();
+		while(I1.hasNext())
+		{
+			child_window=I1.next();
+			if(!parent.equals(child_window))
+			{
+				driver.switchTo().window(child_window);
+				System.out.println("Page Title: "+driver.switchTo().window(child_window).getTitle());
+			}
+
+		}
+		String pageURL = driver.getCurrentUrl();
+		System.out.println("Page URL : "+pageURL);
+
+		Assert.assertTrue(pageURL.contains("viewpurchase"));
+		driver.switchTo().window(parent);
+		driver.navigate().refresh();	
+	}
+
+	@Test(priority = 10)
+	public void print_purchase_order() throws IOException,InterruptedException
+	{
+		System.out.println("------Started Executing Print Purchase Order------");
+		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
+		pop.getPurchase().click();
+
+		pop.getPOLink().click();
+		Thread.sleep(3000);
+		driver.switchTo().activeElement();
+		Thread.sleep(3000);
+		pop.getPrint().click();
+
+		parent=driver.getWindowHandle();
+		s=driver.getWindowHandles();
+		I1= s.iterator();
+		while(I1.hasNext())
+		{
+			String child_window=I1.next();
+			if(!parent.equals(child_window))
+			{
+				driver.switchTo().window(child_window);
+				System.out.println(driver.switchTo().window(child_window).getTitle());
+			}
+
+		}
+		String pageURL = driver.getCurrentUrl();
+		System.out.println("pageURL : "+pageURL);
+
+		Assert.assertTrue(pageURL.contains("print=true"));	
+		driver.switchTo().window(parent);
+	}
 	/*
 	@Test
 	public void add_COA_Document_to_PO() throws InterruptedException, IOException
@@ -298,7 +429,6 @@ public class PurchaseOrderTest extends base{
 	@AfterTest
 	public void driverClose() 	
 	{
-
 		driver.close();
 	}
 }

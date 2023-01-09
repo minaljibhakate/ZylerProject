@@ -92,21 +92,45 @@ public class InboundTrackingPage {
 	//table Id click
 	private By table_id_click = By.xpath("//table[@id='table-inbTracking']//tr[1]//td[1]//a");
 
-	//Success message
+	//Delete message
 	private By del_success_msg = By.xpath("//div[@class='alert alert-danger alert-dismissible']");
 
 	//delete bbutton
 	private By delete_button = By.xpath("//a[normalize-space()='Delete']");
-	
+
 	//type filter
 	private By type_filer = By.xpath("(//button[@type='button'])[3]");
-			
+
 	//internation type
 	private By international_filter = By.xpath("//a[normalize-space()='International']");
-	
+
 	//IB tye column list
-//	private By IB_type_column_list = By.xpath("//table//tr//td[2]");
+	//	private By IB_type_column_list = By.xpath("//table//tr//td[2]");
 	private By IB_type_column_list = By.xpath("(//td[@title='International'][normalize-space()='International'])");
+
+	//Edit button
+	private By edit_button = By.xpath("(//a[@class='btn btn-default btn-with-tooltip float-left mr-2 '])[1]");
+
+	//Quantity field in Edit
+	private By qty_edit= By.xpath("(//input[@type='number'])[2]");
+
+	//Attach a File message
+	private By attach_file = By.xpath("//a[normalize-space()='Attach File']");
+
+	//file upload
+	private By file_upload = By.xpath("//span[normalize-space()='Drop files here to upload']");
+
+	//activity log
+	private By activity_log = By.xpath("//a[normalize-space()='Activity Log']");
+
+	//Received Button
+	private By received_button = By.xpath("//a[normalize-space()='Received']");
+
+	//Received Status
+	private By received_status = By.xpath("(//tbody//tr//td[7])[6]");
+
+	//Open Status
+	private By open_status = By.xpath("(//tbody//tr//td[7])[27]");	
 
 	public WebElement getPurchase()
 	{
@@ -251,19 +275,51 @@ public class InboundTrackingPage {
 	{
 		return driver.findElement(del_success_msg);
 	}
-	
+
 	public WebElement getTypeFilter()
 	{
 		return driver.findElement(type_filer);
 	}
-	
+
 	public WebElement getInternationalFilter()
 	{
 		return driver.findElement(international_filter);
 	}
-	
+
 	public List<WebElement> getIBColunmnList()
 	{
 		return driver.findElements(IB_type_column_list);
+	}
+	public WebElement getEditButton()
+	{
+		return driver.findElement(edit_button);
+	}
+	public WebElement getQuantityEdit()
+	{
+		return driver.findElement(qty_edit);
+	}
+	public WebElement getAttachFile()
+	{
+		return driver.findElement(attach_file);
+	}
+	public WebElement getFileUpload()
+	{
+		return driver.findElement(file_upload);
+	}
+	public WebElement getActivityLog()
+	{
+		return driver.findElement(activity_log);
+	}
+	public WebElement getReceivedButton()
+	{
+		return driver.findElement(received_button);
+	}
+	public WebElement getReceivedStatus()
+	{
+		return driver.findElement(received_status);
+	}
+	public WebElement getOpenStatus()
+	{
+		return driver.findElement(open_status);
 	}
 }

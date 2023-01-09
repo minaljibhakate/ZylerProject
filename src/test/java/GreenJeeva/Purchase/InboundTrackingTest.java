@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,6 +16,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import TestComponents.base;
 import pageObjects.InboundTrackingPage;
+import utils.ExcelUtils;
 
 public class InboundTrackingTest extends base {
 
@@ -24,6 +26,7 @@ public class InboundTrackingTest extends base {
 	static CharSequence invoice_number; 
 	//	CharSequence IB_number;
 	InboundTrackingPage itp;
+	ExcelUtils excel ;
 
 	@BeforeTest
 	public void driverOpen() throws IOException, AWTException
@@ -33,6 +36,62 @@ public class InboundTrackingTest extends base {
 	}
 
 	@Test(priority = 1)
+	public void edit_Inbound_Tracking() throws InterruptedException 
+	{
+		System.out.println("------Started Executing Edit Inbound Tracking------");
+		excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "InboundTracking");	
+		itp = new InboundTrackingPage(driver);
+		itp.getPurchase().click();
+		itp.getHamburgerMenuClick().click();
+		itp.getInboundTrackingMenuClick().click();
+
+		itp.getTableIDClick().click();
+		driver.switchTo().activeElement();
+
+		itp.getEditButton().click();
+		///JOINBTRKN-000068 updated Successfully.
+
+		itp.getQuantityEdit().clear();
+		itp.getQuantityEdit().sendKeys(excel.getCellDataNumber(2, 6));
+		Thread.sleep(3000);
+		itp.getSaveButton().click();
+
+		//Verifying success Message
+		WebElement success_wait = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(itp.getSuccessMessage()));	
+		String sucess_message = success_wait.getText();
+		String expected_success_message = "updated Successfully";
+		Assert.assertTrue(sucess_message.contains(expected_success_message));
+		System.out.println("Message  :"+sucess_message.replace("×", ""));
+	}
+
+	@Test(priority = 2)
+	public void attach_file_Inbound_Tracking() throws InterruptedException, IOException 
+	{
+		System.out.println("------Started Executing Attach A file to Inbound Tracking------");
+		itp = new InboundTrackingPage(driver);
+		itp.getPurchase().click();
+		itp.getHamburgerMenuClick().click();
+		itp.getInboundTrackingMenuClick().click();
+
+		itp.getTableIDClick().click();
+		driver.switchTo().activeElement();
+		itp.getMoreButton().click();
+		itp.getAttachFile().click();
+
+		itp.getFileUpload().click();
+		Thread.sleep(2000);
+		Runtime.getRuntime().exec(dataExcelPath+"\\TestUploadFile\\FileUpload.exe"); 
+		Thread.sleep(5000);
+		itp.getActivityLog().click();
+		String activity_log_text = driver.findElement(By.xpath("(//div[@class='feed-item'])[1]")).getText();
+		//System.out.println("text: "+activity_log_text);
+		Assert.assertTrue(activity_log_text.contains("Attachment Added"));
+		itp.getPreviewCloseButton().click();
+	}
+
+
+
+	@Test(priority = 3)
 	public void delete_Inbound_Tracking() 
 	{
 		System.out.println("------Started Executing Delete Inbound Tracking------");
@@ -56,7 +115,7 @@ public class InboundTrackingTest extends base {
 		System.out.println("Message  :"+sucess_message.replace("×", ""));
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 4)
 	public void sorting_by_type_Inbound_Tracking() throws InterruptedException 
 	{
 		System.out.println("------Started Executing Sorting for Type Filter on Inbound Tracking------");
@@ -83,6 +142,45 @@ public class InboundTrackingTest extends base {
 		System.out.println("Status Count==>"+status_count);
 		Assert.assertTrue(status_count==statusColumnList.size());
 
+	}
+	@Test(priority = 5)
+	public void recieved_status_Inbound_Tracking() throws InterruptedException 
+	{
+		System.out.println("------Started Executing Received status verification in Received List Inbound Tracking------");
+		itp = new InboundTrackingPage(driver);
+		itp.getPurchase().click();
+		itp.getHamburgerMenuClick().click();
+		itp.getInboundTrackingMenuClick().click();
+
+		Thread.sleep(2000);
+		itp.getReceivedButton().click();//driver.findElement(By.xpath("//a[normalize-space()='Received']")).click();
+
+		itp.getTableIDClick().click();
+		driver.switchTo().activeElement();
+
+		String status = itp.getReceivedStatus().getText();//driver.findElement(By.xpath("(//tbody//tr//td[7])[6]")).getText();
+
+		//	System.out.println("status: "+status);
+		Assert.assertTrue(status.contains("Received"));
+		itp.getPreviewCloseButton().click();
+	}
+	@Test(priority = 6)
+	public void open_status_Inbound_Tracking() throws InterruptedException 
+	{
+		System.out.println("------Started Executing Open status verification in Yet to Receive List Inbound Tracking------");
+		itp = new InboundTrackingPage(driver);
+		itp.getPurchase().click();
+		itp.getHamburgerMenuClick().click();
+		itp.getInboundTrackingMenuClick().click();
+
+		itp.getTableIDClick().click();
+		driver.switchTo().activeElement();
+
+		String status = itp.getOpenStatus().getText(); // driver.findElement(By.xpath("(//tbody//tr//td[7])[27]")).getText();
+
+		//	System.out.println("status: "+status);
+		Assert.assertTrue(status.contains("Open"));
+		itp.getPreviewCloseButton().click();
 	}
 
 	@AfterTest

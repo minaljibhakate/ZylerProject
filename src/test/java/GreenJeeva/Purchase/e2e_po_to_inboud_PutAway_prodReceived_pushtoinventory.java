@@ -135,6 +135,7 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 		System.out.println("------Started Executing Add COA Document to Purchase Order------");
 		PurchaseOrderPage pop = new PurchaseOrderPage(driver);
 		pop.getPurchase().click();
+		//purchaseOrder_number="JOPO-0122000539";
 		pop.getSearch().sendKeys(purchaseOrder_number);
 		Thread.sleep(2000);
 		pop.getPOLink().click();
@@ -144,7 +145,8 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 		pop.getAttachCOADocument().click();
 		pop.getUploadfile().click();
 		Thread.sleep(2000);
-		Runtime.getRuntime().exec("D:\\Zyler ERP Automation\\ZylerERP\\TestUploadFile\\FileUpload.exe"); 
+		Runtime.getRuntime().exec(dataExcelPath+"\\TestUploadFile\\FileUpload.exe");
+		//Runtime.getRuntime().exec("D:\\Zyler ERP Automation\\ZylerERP\\TestUploadFile\\FileUpload.exe"); 
 		//Runtime.getRuntime().exec("D:\\Zyler ERP Automation\\FileUpload.exe");
 		driver.switchTo().activeElement();
 		pop.getUploadFileCloseButton().click();
@@ -314,9 +316,8 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 //		PurchaseOrderTest pot = new PurchaseOrderTest();
 //		pot.add_Purchase_Order();
 //		pot.add_COA_Document_to_PO();
-		
 		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "AccountPayable");	
-		
+		Thread.sleep(2000);
 		System.out.println("------Started Executing Purchase Order to Push to Inventory------");
 		AccountPayablePage app = new AccountPayablePage(driver);
 		

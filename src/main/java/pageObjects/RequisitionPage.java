@@ -72,6 +72,7 @@ public class RequisitionPage {
 
 	//	Remark
 	private By remark = By.xpath("//textarea[@id='description']");
+	//private By remark = By.xpath("//textarea[@id='note']");
 
 	//	Yes button
 	private By yes_button = By.xpath("//button[normalize-space()='Yes']");

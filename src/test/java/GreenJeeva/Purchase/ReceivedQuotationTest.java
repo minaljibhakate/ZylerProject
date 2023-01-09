@@ -232,10 +232,10 @@ public class ReceivedQuotationTest extends base {
 
 
 
-	//	@AfterTest
-	//	public void driverClose() 	
-	//	{
-	//
-	//		driver.close();
-	//	}
+	@AfterTest
+	public void driverClose() 	
+	{
+
+		driver.close();
+	}
 }

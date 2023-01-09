@@ -4,9 +4,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
-
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import TestComponents.base;
 import pageObjects.RequisitionPage;
 import utils.ExcelUtils;
@@ -142,6 +139,7 @@ public class RequisitionTest extends base {
 		rp.getPurchase().click();
 		rp.getHamburgerMenuClick().click();
 		rp.getRequisitionMenuClick().click();
+				
 		rp.getRequisitionIDtable().click();
 		driver.switchTo().activeElement();
 		Thread.sleep(1000);
@@ -218,10 +216,11 @@ public class RequisitionTest extends base {
 		System.out.println("Status Count==>"+status_count);
 		Assert.assertTrue(status_count==statusColumnList.size());
 	}
-	@AfterTest
-	public void driverClose() throws InterruptedException 	
-	{
-		Thread.sleep(3000);
-		driver.close();
-	}	
+	
+//	@AfterTest
+//	public void driverClose() throws InterruptedException 	
+//	{
+//		Thread.sleep(3000);
+//		driver.close();
+//	}	
 }

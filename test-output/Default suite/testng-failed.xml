@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="GreenJeeva.Purchase.ReceivedQuotationTest">
+      <class name="GreenJeeva.Purchase.InboundTrackingTest">
         <methods>
+          <include name="driverClose"/>
           <include name="driverOpen"/>
-          <include name="received_quotation_convert_to_purchase"/>
+          <include name="edit_Inbound_Tracking"/>
         </methods>
-      </class> <!-- GreenJeeva.Purchase.ReceivedQuotationTest -->
+      </class> <!-- GreenJeeva.Purchase.InboundTrackingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
