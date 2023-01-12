@@ -325,7 +325,6 @@ public class PurchaseOrderTest extends base{
 		pop.getSalesUpload().click();
 		Thread.sleep(2000);
 		Runtime.getRuntime().exec(dataExcelPath+"\\TestUploadFile\\FileUpload.exe"); 
-		//Runtime.getRuntime().exec("D:\\Zyler ERP Automation\\FileUpload.exe");
 		driver.switchTo().activeElement();
 		pop.getSalesUploadClose().click();
 		driver.switchTo().activeElement();

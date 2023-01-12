@@ -19,7 +19,7 @@ import pageObjects.PurchaseOrderPage;
 import pageObjects.RecordPaymentForPO;
 import utils.ExcelUtils;
 
-public class RecordPayamentTest extends base{
+public class RecordPaymentTest extends base{
 
 	WebDriver driver;
 	RecordPaymentForPO rpp ;
@@ -32,7 +32,7 @@ public class RecordPayamentTest extends base{
 	}
 
 	@Test
-	public void record_payent_for_Purchase_Order() throws InterruptedException
+	public void record_payment_for_Purchase_Order() throws InterruptedException
 	{
 		System.out.println("------Started Executing Record Payment for Purchase Order------");
 		ExcelUtils excel = new ExcelUtils(dataExcelPath + "/TestDataExcel/ZylerERPPurchase.xlsx", "PurchaseOrder");		

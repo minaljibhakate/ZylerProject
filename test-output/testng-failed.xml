@@ -3,13 +3,18 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="GreenJeeva.Purchase.InboundTrackingTest">
+      <class name="GreenJeeva.Purchase.AccountPayableTest">
         <methods>
-          <include name="driverClose"/>
+          <include name="attach_file_account_payable"/>
+          <include name="print_account_payable"/>
+          <include name="po_Level_attachment_account_payable"/>
+          <include name="edit_account_payable"/>
+          <include name="download_pdf_account_Payable"/>
+          <include name="delete_account_payable"/>
           <include name="driverOpen"/>
-          <include name="edit_Inbound_Tracking"/>
+          <include name="add_note_account_payable"/>
         </methods>
-      </class> <!-- GreenJeeva.Purchase.InboundTrackingTest -->
+      </class> <!-- GreenJeeva.Purchase.AccountPayableTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
