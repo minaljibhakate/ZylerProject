@@ -187,7 +187,7 @@ public class InboundTrackingTest extends base {
 	public void driverClose() throws InterruptedException 	
 	{
 		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}	
 
 	/*

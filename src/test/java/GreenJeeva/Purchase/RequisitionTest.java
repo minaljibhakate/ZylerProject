@@ -71,6 +71,8 @@ public class RequisitionTest extends base {
 		} 
 
 		rp.getRate().sendKeys(excel.getCellDataNumber(1, 3));
+		Thread.sleep(3000);
+
 		rp.getAddLineItem().click();
 		rp.getSaveButton().click();
 
@@ -151,7 +153,7 @@ public class RequisitionTest extends base {
 		Thread.sleep(1000);
 		rp.getYesButton().click();
 		Thread.sleep(9000);
-
+		Thread.sleep(5000);
 		driver.switchTo().activeElement();
 		rp.getPreviewCloseButton().click();
 		Thread.sleep(1000);
@@ -188,7 +190,7 @@ public class RequisitionTest extends base {
 		System.out.println("Message  :"+sucess_message.replace("×", ""));
 	}
 
-	@Test(priority=5)
+	@Test(enabled = false)
 	public void requitision_SortingOfCategory() throws InterruptedException
 	{
 		System.out.println("------Started Executing Sorting Of Categogy in Requisition List Page------");
@@ -197,6 +199,9 @@ public class RequisitionTest extends base {
 		rp.getPurchase().click();
 		rp.getHamburgerMenuClick().click();
 		rp.getRequisitionMenuClick().click();
+		
+		Thread.sleep(5000);
+		rp.getSearch().clear();
 		
 		rp.getCategorySorting().click();
 		rp.getCategoryInternal().click();

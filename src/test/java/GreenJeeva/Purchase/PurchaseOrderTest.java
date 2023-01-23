@@ -356,13 +356,13 @@ public class PurchaseOrderTest extends base{
 				driver.switchTo().window(child_window);
 				System.out.println("Page Title: "+driver.switchTo().window(child_window).getTitle());
 			}
-
 		}
 		String pageURL = driver.getCurrentUrl();
 		System.out.println("Page URL : "+pageURL);
 
 		Assert.assertTrue(pageURL.contains("viewpurchase"));
 		driver.switchTo().window(parent);
+		//driver.switchTo().window(child_window).close();
 		driver.navigate().refresh();	
 	}
 
@@ -384,7 +384,7 @@ public class PurchaseOrderTest extends base{
 		I1= s.iterator();
 		while(I1.hasNext())
 		{
-			String child_window=I1.next();
+			child_window=I1.next();
 			if(!parent.equals(child_window))
 			{
 				driver.switchTo().window(child_window);
@@ -396,6 +396,7 @@ public class PurchaseOrderTest extends base{
 		System.out.println("pageURL : "+pageURL);
 
 		Assert.assertTrue(pageURL.contains("print=true"));	
+		//driver.switchTo().window(child_window).close();
 		driver.switchTo().window(parent);
 	}
 	/*
@@ -428,6 +429,6 @@ public class PurchaseOrderTest extends base{
 	@AfterTest
 	public void driverClose() 	
 	{
-		driver.close();
+		driver.quit();
 	}
 }

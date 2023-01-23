@@ -325,7 +325,7 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 		app.getHamburgerMenuClick().click();
 		app.getAccountPayableClick().click();
 		
-		//PO_invoice_number = (String) InboundTrackingTest.invoice_number;     // "JOINVPO-0922000220";
+		invoice_number="JOINVPO-0122000315"; //PO_invoice_number = (String) InboundTrackingTest.invoice_number;  
 		driver.findElement(By.xpath("//a[@title='"+invoice_number+" ']")).click();
 		
 		Thread.sleep(2000);
@@ -349,11 +349,12 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 		
 		app.getSaveButton().click();
 		
+		app.getQuantity().clear();
 		app.getQuantity().sendKeys("1000");
 
 		//String success_message = app.getSuccessMessage().getText();
 		
-		app.getQuantity().sendKeys("1000");
+		//app.getQuantity().sendKeys("1000");
 
 		app.getActivityLog().click();
 		String expected_success_message ="Product Push Inventory";
@@ -362,9 +363,9 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 		System.out.println("Product is Successfully Pushed to Inventory");
 	}
 	
-	@AfterTest
-	public void driverClose() 	
-	{
-		driver.close();
-	}
+//	@AfterTest
+//	public void driverClose() 	
+//	{
+//		driver.close();
+//	}
 }

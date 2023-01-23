@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -18,6 +17,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import TestComponents.base;
 import pageObjects.AccountPayablePage;
 import utils.ExcelUtils;
+import utils.FileDownloadVerification;
 
 public class AccountPayableTest extends base {
 
@@ -84,18 +84,23 @@ public class AccountPayableTest extends base {
 	@Test(priority = 2)
 	public void download_pdf_account_Payable() throws IOException,InterruptedException
 	{
-		System.out.println("------Started Executing Download Account Payable------");
+		System.out.println("------Started Executing Download PDF for Account Payable------");
 
 		app = new AccountPayablePage(driver);
 
 		app.getPurchase().click();
 		app.getHamburgerMenuClick().click();
 		app.getAccountPayableClick().click();
+		
+		String fileName = app.getTableIDClick().getText();
+		
 		app.getTableIDClick().click();
 		driver.switchTo().activeElement();
 		app.getDownloadPdf().click();
 
 		app.getPreviewCloseButton().click();
+		Assert.assertTrue(FileDownloadVerification.isFileDownloaded(fileName, "pdf", 5000));
+
 	}
 
 	@Test(priority = 3)
@@ -226,7 +231,7 @@ public class AccountPayableTest extends base {
 		I1= s.iterator();
 		while(I1.hasNext())
 		{
-			String child_window=I1.next();
+			child_window=I1.next();
 			if(!parent.equals(child_window))
 			{
 				driver.switchTo().window(child_window);
@@ -237,11 +242,12 @@ public class AccountPayableTest extends base {
 		String pageURL = driver.getCurrentUrl();
 		System.out.println("pageURL : "+pageURL);
 
-		Assert.assertTrue(pageURL.contains("print=true"));	
+		Assert.assertTrue(pageURL.contains("print=true"));
+		driver.switchTo().window(child_window).close();
 		driver.switchTo().window(parent);
 	}
 
-	@Test(enabled = false) 
+	@Test(enabled = false , priority=8 ) 
 	public void PO_push_to_inventory() throws InterruptedException, IOException 
 	{
 		//		PurchaseOrderTest pot = new PurchaseOrderTest();

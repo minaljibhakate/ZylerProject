@@ -69,7 +69,7 @@ public class ToBeSourcedTest extends base {
 		//Add Item Code	
 		ep.getAddItemDropdown().click();
 		ep.getAddItemDropdownSearch().sendKeys(excel.getCellDataString(2, 1));
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		List<WebElement> itemList = new WebDriverWait(driver, Duration.ofSeconds(20))
 				.until(ExpectedConditions.visibilityOfAllElements(ep.getAddItemDropdownSuggestion()));
 		for(int i=0 ; i<itemList.size(); i++) {
@@ -97,6 +97,7 @@ public class ToBeSourcedTest extends base {
 		ep.getQty().sendKeys(excel.getCellDataNumber(2, 2));
 
 		//click on Add line Item
+		Thread.sleep(3000);
 		ep.getAddLineItemClick().click();
 
 		//click on Save button
