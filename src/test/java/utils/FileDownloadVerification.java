@@ -10,8 +10,7 @@ public class FileDownloadVerification {
 	{
 	    // Download Folder Path
 	    String folderName = "C:\\Users\\ADMIN\\Downloads";
-	    		//System.getProperty("user.dir") + File.separator + "downloads";
-	    
+	    //System.getProperty("user.dir") + File.separator + "downloads";
 			
 	    // Array to Store List of Files in Directory
 	    File[] listOfFiles;
@@ -31,7 +30,7 @@ public class FileDownloadVerification {
 	    long waitTime = startTime + timeOut;
 	       
 	    
-	    System.out.println( "folderName: "+folderName);
+	    System.out.println( "Download Folder Name: "+ folderName);
 	    // while current time is less than wait time
 	    while (Instant.now().toEpochMilli() < waitTime) 
 	    {			

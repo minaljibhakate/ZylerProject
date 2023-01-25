@@ -307,7 +307,10 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 		//Printing the Invoice Number Generated
 		//Thread.sleep(2000);
 		invoice_number = success_message.substring(1, 19);
-		System.out.println("Invoice Generated: "+ invoice_number);	
+		System.out.println("Invoice Generated: "+ invoice_number);
+		Thread.sleep(2000);
+		pop.getPreviewCloseButton1().click();
+		Thread.sleep(2000);
 	}
 	
 	@Test (priority = 6)
@@ -350,7 +353,7 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 		app.getSaveButton().click();
 		
 		app.getQuantity().clear();
-		app.getQuantity().sendKeys("1000");
+		app.getQuantity().sendKeys("10");//("1000");
 
 		//String success_message = app.getSuccessMessage().getText();
 		
@@ -363,9 +366,9 @@ public class e2e_po_to_inboud_PutAway_prodReceived_pushtoinventory extends base 
 		System.out.println("Product is Successfully Pushed to Inventory");
 	}
 	
-//	@AfterTest
-//	public void driverClose() 	
-//	{
-//		driver.close();
-//	}
+	@AfterTest
+	public void driverClose() 	
+	{
+		driver.close();
+	}
 }

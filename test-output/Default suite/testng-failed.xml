@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="GreenJeeva.Purchase.AmountPaidTest">
+      <class name="GreenJeeva.Purchase.RMATest">
         <methods>
+          <include name="download_pdf_account_Payable"/>
           <include name="driverOpen"/>
-          <include name="download_pdf_amount_paid"/>
         </methods>
-      </class> <!-- GreenJeeva.Purchase.AmountPaidTest -->
+      </class> <!-- GreenJeeva.Purchase.RMATest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

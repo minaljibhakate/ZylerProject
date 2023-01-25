@@ -31,6 +31,18 @@ public class AmountPaidPage {
 	//download PDF
 	private By download_pdf = By.xpath("//i[@class='fa fa-file-pdf-o']");
 
+	//Delete
+	private By delete = By.xpath("//a[normalize-space()='Delete']");
+
+	//Delete success Message
+	private By success_msg = By.xpath("//div[@class='alert alert-success alert-dismissible']");
+
+	//amount
+	private By amount = By.xpath("//input[@id='amount']");
+
+	//Save button
+	private By save_button = By.xpath("//button[normalize-space()='Save']");
+
 	public WebElement getPurchase()
 	{
 		return driver.findElement(purchase_link);
@@ -59,5 +71,22 @@ public class AmountPaidPage {
 	public WebElement getDownloadPdf()
 	{
 		return driver.findElement(download_pdf);
+	}
+
+	public WebElement getDelete()
+	{
+		return driver.findElement(delete);
+	}
+	public WebElement getDeleteSuccessMessage()
+	{
+		return driver.findElement(success_msg);
+	}
+	public WebElement getAmount()
+	{
+		return driver.findElement(amount);
+	}
+	public WebElement getSaveButton()
+	{
+		return driver.findElement(save_button);
 	}
 }

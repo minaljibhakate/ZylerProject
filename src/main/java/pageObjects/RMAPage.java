@@ -12,6 +12,15 @@ public class RMAPage {
 		this.driver=driver;
 	}
 
+	// Sale link from header
+	private By purchase_link = By.xpath("//a[normalize-space()='Purchase']");
+
+	//Hamburger Icon click
+	private By hamburgermenu_button = By.xpath("//span[@class='material-icons left']");
+
+	//Account Payable from Menu
+	private By RMA_menu_link = By.xpath("(//a[normalize-space()='RMA'])[1]");
+
 	// Document tab click
 	private By document_tab = By.xpath("//a[@id='tab_related_docs_tab']");
 
@@ -57,6 +66,45 @@ public class RMAPage {
 	// Preview Close button
 	private By review_close_button = By.xpath("(//button[@type='button'])[4]");
 
+	//term&conditions
+	private By term_conditions = By.xpath("//textarea[@id='terms']");
+
+	//Table Id click
+	private By table_id_click = By.xpath("//table[@id='table-return_popurchase']//tr[1]//td[1]//a");
+
+	//Edit button
+	private By edit_button = By.xpath("(//a[@class='btn btn-default btn-with-tooltip float-left mr-2'])[1]");
+
+	//Save button
+	//private By save_btn = By.xpath("//button[@type='submit']");
+
+	//Print
+	private By print = By.xpath("//i[normalize-space()='print']");
+
+	//download PDF
+	private By download_pdf = By.xpath("//i[@class='fa fa-file-pdf-o']");//(//a[@class='btn btn-default btn-with-tooltip float-left mr-2'])[3]
+
+	//Preview Close button
+	private By preview_close = By.xpath("//div[@class='modal-content p-3']//i[@class='material-icons'][normalize-space()='navigate_next']");
+
+	//Delete
+	private By delete = By.xpath("//i[normalize-space()='delete']");
+
+	//Delete success Message
+	private By delete_success_msg = By.xpath("//div[@class='alert alert-success alert-dismissible']");
+
+	public WebElement getPurchase()
+	{
+		return driver.findElement(purchase_link);
+	}
+	public WebElement getHamburgerMenuClick()
+	{
+		return driver.findElement(hamburgermenu_button);
+	}
+	public WebElement getRMMenu()
+	{
+		return driver.findElement(RMA_menu_link);
+	}
 	public WebElement getDocumentTabClick()
 	{
 		return driver.findElement(document_tab);
@@ -116,5 +164,41 @@ public class RMAPage {
 	public WebElement getPreviewCloseButton()
 	{
 		return driver.findElement(review_close_button);
+	}
+	public WebElement getTermsConditions()
+	{
+		return driver.findElement(term_conditions);
+	}
+	public WebElement getTableIDClick()
+	{
+		return driver.findElement(table_id_click);
+	}
+	public WebElement getEditButton()
+	{
+		return driver.findElement(edit_button);
+	}
+	public WebElement getSaveRMA()
+	{
+		return driver.findElement(save_button_AR);
+	}
+	public WebElement getPrint()
+	{
+		return driver.findElement(print);
+	}
+	public WebElement getDownloadPdf()
+	{
+		return driver.findElement(download_pdf);
+	}
+	public WebElement getPreviewClose()
+	{
+		return driver.findElement(preview_close);
+	}
+	public WebElement getDelete()
+	{
+		return driver.findElement(delete);
+	}
+	public WebElement getDeleteSuccessMessage()
+	{
+		return driver.findElement(delete_success_msg);
 	}
 }
